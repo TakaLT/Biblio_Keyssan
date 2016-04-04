@@ -15,7 +15,6 @@ public class Adherent extends Utilisateur
    
    //Constructeur
    /**
-    * @roseuid 5241490A008C
     */
    public Adherent() {
 	   super();
@@ -54,7 +53,6 @@ public class Adherent extends Utilisateur
 
    /**
     * @return Boolean
-    * @roseuid 4942399B00EA
     */
    public Boolean isConditionsPretAcceptees() 
    {
@@ -63,7 +61,6 @@ public class Adherent extends Utilisateur
    
    /**
     * @return Integer
-    * @roseuid 494239C5037A
     */
    public Integer getNbRetards() 
    {

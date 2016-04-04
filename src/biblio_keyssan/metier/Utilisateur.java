@@ -14,16 +14,12 @@ public class Utilisateur extends Personne
    private EmpruntEnCours empruntEnCours[];
    
 //Constructeur
-   /**
-    * @roseuid 5241490A01F4
-    */
    public Utilisateur() 
    {
     
    }
    public Utilisateur(Integer idUtilisateur) {
 	   	super();
-		
 		
 	}
    
@@ -68,7 +64,6 @@ public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, Emprunt
 	
 	/**
 	* @return biblio.metier.EmpruntEnCours[ ]
-	* @roseuid 4CA4A2C2006D
 	*/
 	public EmpruntEnCours[ ] getEmpruntEnCours() {
 		return empruntEnCours;
@@ -80,7 +75,6 @@ public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, Emprunt
 //Methode
 	/**
 	* @return Integer
-	* @roseuid 49423A15037A
 	*/
 	public Integer getNbEmpruntsEnCours() {
 		return null;
@@ -88,7 +82,6 @@ public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, Emprunt
 	 /**
 	    * @param ep
 	    * @return Void
-	    * @roseuid 4CA4A34E02FD
 	    */
 	   public void addEmpruntEnCours(EmpruntEnCours ep) {
 		   

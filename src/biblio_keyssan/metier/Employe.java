@@ -9,16 +9,15 @@ public class Employe extends Utilisateur
    private String codeMatricule;
    private EnumCategorieEmploye categorieEmploye;
 //Constructeur
-   /**
-    * @roseuid 5241490A002F
-    */
+
    public Employe() 
    {
-    
+    super();
    }
    
-	public Employe(String nom, String prenom, GregorianCalendar dateNaissance, String sexe, Integer idUtilisateur,String codeMatricule, EnumCategorieEmploye categorieEmploye) {
-	super(nom, prenom, dateNaissance, sexe, idUtilisateur);
+   
+	public Employe(String nom, String prenom, GregorianCalendar dateNaissance, String sexe ,int idUtilisateur,String codeMatricule, EnumCategorieEmploye categorieEmploye) {
+	super(nom, prenom, dateNaissance, sexe, idUtilisateur );
 	this.setCodeMatricule(codeMatricule);
 	this.setCategorieEmploye(categorieEmploye);
 }

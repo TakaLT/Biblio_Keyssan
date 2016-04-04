@@ -3,7 +3,7 @@
 package biblio_keyssan.metier;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Personne 
@@ -13,14 +13,14 @@ public class Personne
    private GregorianCalendar dateNaissance;
    private String sexe;
    
-   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+   public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
  //Constructeur 
  
-   public Personne() 
-   {
-    
+   public Personne() {
+    super();
    }
-	public Personne(String nom, String prenom, GregorianCalendar dateNaissance, String sexe) {
+ 
+   public Personne(String nom, String prenom, GregorianCalendar dateNaissance, String sexe) {
 		super();
 		this.setNom (nom);
 		this.setPrenom (prenom);

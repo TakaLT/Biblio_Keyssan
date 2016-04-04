@@ -24,18 +24,17 @@ public class ExemplairesDao {
 
 	public void setExemplaireDB(HashMap<Integer, Exemplaire> exemplaireDB) {
 		this.exemplaireDB = exemplaireDB;
-	}
-   
+	}   
 	
 
 //Methode
 	public void ajoutExemplaire(Exemplaire ex) {
-	      
+		//HashMap <KEY,Value>
+		//ex.getIdExemplaire() = KEY
+		//ex = Value	      
 	      exemplaireDB.put(ex.getIdExemplaire(), ex);
 	   }
 
-	/** @param id
-    * @pdOid 57c46119-a2af-4dd2-8b89-5ae68518f33c */
    public Exemplaire findByKey(Integer id) {	   
 	   return exemplaireDB.get(id);
    }

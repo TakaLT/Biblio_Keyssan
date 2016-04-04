@@ -8,23 +8,23 @@ import java.util.Date;
 
 public class Exemplaire 
 {
-   private Integer idExemplaire;
+   private int idExemplaire;
    private Date dateAchat;
    private EnumStatusExemplaire status;
    private String isbn;
    private Livre livre;
    public EmpruntEnCours theEmpruntEnCours;
-   SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+   public SimpleDateFormat sdf1=new SimpleDateFormat("dd/MM/yyyy");
 //Constructeur
 
    public Exemplaire() {
     
    }
-   public Exemplaire(Integer idExemplaire,String dateAchat, EnumStatusExemplaire status, String isbn) {
+   public Exemplaire(int idExemplaire,String dateAchat, EnumStatusExemplaire status, String isbn) {
 		super();
 		this.setIdExemplaire( idExemplaire);		
 		try {
-			this.setDateAchat(sdf.parse(dateAchat));
+			this.setDateAchat(sdf1.parse(dateAchat));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -33,7 +33,7 @@ public class Exemplaire
 		
 	}
 
-	public Exemplaire(Integer idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn, Livre livre, EmpruntEnCours theEmpruntEnCours) {
+	public Exemplaire(int idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn, Livre livre, EmpruntEnCours theEmpruntEnCours) {
 		super();
 		this.setIdExemplaire( idExemplaire);
 		this.setDateAchat(dateAchat);
@@ -44,11 +44,11 @@ public class Exemplaire
 	}
 //Getteur et Setteur
 
-	public Integer getIdExemplaire() {
+	public int getIdExemplaire() {
 		return idExemplaire;
 	}
 	
-	public void setIdExemplaire(Integer idExemplaire) {
+	public void setIdExemplaire(int idExemplaire) {
 		this.idExemplaire = idExemplaire;
 	}
 	
@@ -94,8 +94,7 @@ public class Exemplaire
 //Override
 @Override
 	public String toString() {
-		return "Exemplaire [getIdExemplaire()=" + getIdExemplaire() + ", getDateAchat()=" +sdf.format(getDateAchat())
-				+ ", getStatus()=" + getStatus() + ", getIsbn()=" + getIsbn() + ", getLivre()=" + getLivre()
+		return "Exemplaire [getIdExemplaire()=" + getIdExemplaire() + ", getDateAchat()="+sdf1.format(getDateAchat())+", getStatus()=" + getStatus() + ", getIsbn()=" + getIsbn() + ", getLivre()=" + getLivre()
 				+ ", getTheEmpruntEnCours()=" + getTheEmpruntEnCours() + "]";
 	}
 

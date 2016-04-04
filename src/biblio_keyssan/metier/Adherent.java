@@ -3,21 +3,17 @@
 package biblio_keyssan.metier;
 
 import java.util.Arrays;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
-import biblio.metier.Serializable;
-
-public class Adherent extends Utilisateur implements java.io.Serializable
+public class Adherent extends Utilisateur 
 {
    private String[] telephone;
    private static int  nbMaxPrets = 3;
    private static int dureeMaxPrets = 15;
    
    
-   //Constructeur
-   /**
-    */
+ //Constructeur
+
    public Adherent() {
 	   super();
     
@@ -26,14 +22,13 @@ public class Adherent extends Utilisateur implements java.io.Serializable
 		super();
 		this.telephone = telephone;
 	}
-   public Adherent(String nom, String prenom, GregorianCalendar dateNaissance, String sexe, Integer idUtilisateur,String[] telephone) {
-		super(nom, prenom, dateNaissance, sexe, idUtilisateur);
+
+   public Adherent(String nom, String prenom, GregorianCalendar dateNaissance, String sexe ,int idUtilisateur, String[] telephone) {
+		super(nom, prenom, dateNaissance, sexe,idUtilisateur);
 		this.telephone = telephone;
 	}
    
-//Getteur et Setteur   
-   
-   
+//Getteur et Setteur      
    public String[] getTelephone() {
 		return telephone;
 	}
@@ -52,28 +47,33 @@ public class Adherent extends Utilisateur implements java.io.Serializable
 	public static void setDureeMaxPrets(int dureeMaxPrets) {
 		Adherent.dureeMaxPrets = dureeMaxPrets;
 	}
-
-   /**
-    * @return Boolean
-    */
+//Some other Methods
+	
    public Boolean isConditionsPretAcceptees() 
-   {
-    return null;
+   {	
+	   if(super.getEmpruntEnCours().size() >= getNbMaxPrets()){
+			try {
+				throw new BiblioException("Le nombre d'emprunt est attteint!!!");
+			} catch (BiblioException e) {
+				
+				e.printStackTrace();
+			}
+			return false;
+		}
+			return true;
    }
-   
-   /**
-    * @return Integer
-    */
-   public Integer getNbRetards() 
+    public Integer getNbRetards() 
    {
     return null;
    }
 //Override
 	@Override
 	public String toString() {
-		return "Adherent ["+super.toString()+"Telephone=" + Arrays.toString(getTelephone()) + ", isConditionsPretAcceptees="
-				+ isConditionsPretAcceptees() + ", NbRetards=" + getNbRetards() + ", EmpruntEnCours="
-				+ Arrays.toString(getEmpruntEnCours()) + ", NbEmpruntsEnCours=" + getNbEmpruntsEnCours() + "]";
+		return "Adherent ["+super.toString()+"telephone=" + Arrays.toString(telephone) + ", isConditionsPretAcceptees()="
+				+ isConditionsPretAcceptees() + ", getNbRetards()="
+				+ getNbRetards() + "]";
 	}
+
+	
    
 }

@@ -23,16 +23,18 @@ public class UtilisateursDao {
 		}
 	   
 	//Getteur et Setteur 
-	   public HashMap<Integer, Utilisateur> getExemplaireDB() {
+	   public HashMap<Integer, Utilisateur> getutilisateurDB() {
 			return utilisateurDB;
 		}
 
-		public void setExemplaireDB(HashMap<Integer, Utilisateur> utilisateurDB) {
+		public void setutilisateurDB(HashMap<Integer, Utilisateur> utilisateurDB) {
 			this.utilisateurDB = utilisateurDB;
 		}
-   
-	   /** @param id
-	    * @pdOid 28336ecf-41de-43d9-a567-62dd74929ba8 */
+
+		public void ajoutUtilisateur(Utilisateur ut) {
+			utilisateurDB.put(ut.idUtilisateur, ut);
+			
+		}
 	   public Utilisateur findByKey(Integer id) {
 	      
 		   return utilisateurDB.get(id);

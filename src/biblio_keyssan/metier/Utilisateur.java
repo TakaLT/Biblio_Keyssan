@@ -2,50 +2,57 @@
 
 package biblio_keyssan.metier;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Utilisateur extends Personne 
 {
-   private Integer idUtilisateur;
+   public int idUtilisateur;
    private String pwd;
    private String pseudonyme;
-   private EmpruntEnCours empruntEnCours[];
+   private ArrayList<EmpruntEnCours>  empruntEnCours = new ArrayList<EmpruntEnCours>();
+   
+
+   
    
 //Constructeur
-   public Utilisateur() 
-   {
-    
-   }
-   public Utilisateur(Integer idUtilisateur) {
-	   	super();
-		
+   public Utilisateur()   {
+    super(); 
+   }  
+   public Utilisateur(int idUtilisateur) {
+	   super(); 
+	   this.setIdUtilisateur(idUtilisateur);   		
+	}
+   public Utilisateur(String nom, String prenom, GregorianCalendar dateNaissance, String sexe,int idUtilisateur) {
+	   super(nom, prenom, dateNaissance, sexe); 
+	   this.setIdUtilisateur(idUtilisateur); 
 	}
    
+   public Utilisateur(String nom, String prenom, GregorianCalendar dateNaissance, String sexe) {
+	   super(nom, prenom, dateNaissance, sexe); 
+	  // this.idUtilisateur++;
+	}
    
-   public Utilisateur(String nom, String prenom, GregorianCalendar dateNaissance, String sexe,Integer idUtilisateur) {
-	super(nom, prenom, dateNaissance, sexe);
-	this.setIdUtilisateur(idUtilisateur);
-}
-public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, EmpruntEnCours[] empruntEnCours) {
-		super();
-		this.setIdUtilisateur(idUtilisateur);
+   public Utilisateur(String nom, String prenom, GregorianCalendar dateNaissance, String sexe,int idUtilisateur, String pwd, String pseudonyme, ArrayList<EmpruntEnCours> empruntEnCours) {
+		this(nom, prenom, dateNaissance, sexe, idUtilisateur);
 		this.setPwd (pwd);
 		this.setPseudonyme(pseudonyme);
 		this.setEmpruntEnCours(empruntEnCours);
 	}
 //Getteur et Setteur  
   
-   
-   public Integer getIdUtilisateur() {
+    
+   public int getIdUtilisateur() {
 	return idUtilisateur;
 	}
 	
-	public void setIdUtilisateur(Integer idUtilisateur) {
+	public void setIdUtilisateur(int idUtilisateur) {
 		this.idUtilisateur = idUtilisateur;
 	}
-	
+	 
 	public String getPwd() {
 		return pwd;
 	}
@@ -62,37 +69,28 @@ public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, Emprunt
 		this.pseudonyme = pseudonyme;
 	}
 	
-	/**
-	* @return biblio.metier.EmpruntEnCours[ ]
-	*/
-	public EmpruntEnCours[ ] getEmpruntEnCours() {
+	public ArrayList<EmpruntEnCours> getEmpruntEnCours() {
 		return empruntEnCours;
 	}	
-	public void setEmpruntEnCours(EmpruntEnCours[] empruntEnCours) {
+	public void setEmpruntEnCours(ArrayList<EmpruntEnCours> empruntEnCours) {
 		this.empruntEnCours = empruntEnCours;
 	}
 	
 //Methode
-	/**
-	* @return Integer
-	*/
-	public Integer getNbEmpruntsEnCours() {
-		return null;
+
+	public int getNbEmpruntsEnCours() {
+		return this.empruntEnCours.size();
 	}
-	 /**
-	    * @param ep
-	    * @return Void
-	    */
+
 	   public void addEmpruntEnCours(EmpruntEnCours ep) {
-		   
+		  this.empruntEnCours.add(ep);
 	   }  
 	  
 //Override
 	   @Override
 		public String toString() {
 			return "Utilisateur ["+super.toString()+" getIdUtilisateur()=" + getIdUtilisateur() + ", getPwd()=" + getPwd() + ", getPseudonyme()="
-					+ getPseudonyme() + ", getEmpruntEnCours()=" + Arrays.toString(getEmpruntEnCours())
-					+ ", getNbEmpruntsEnCours()=" + getNbEmpruntsEnCours() + "]";
+					+ getPseudonyme() + ", getEmpruntEnCours()="+getEmpruntEnCours().toArray()+", getNbEmpruntsEnCours()=" + getNbEmpruntsEnCours() + "]";
 		}
    
 }

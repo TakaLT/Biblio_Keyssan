@@ -12,6 +12,7 @@ public class Exemplaire
    private Date dateAchat;
    private EnumStatusExemplaire status;
    private String isbn;
+   private Livre livre;
    public EmpruntEnCours theEmpruntEnCours;
    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 //Constructeur
@@ -34,12 +35,13 @@ public class Exemplaire
 		
 	}
 
-	public Exemplaire(Integer idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn,  EmpruntEnCours theEmpruntEnCours) {
+	public Exemplaire(Integer idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn, Livre livre, EmpruntEnCours theEmpruntEnCours) {
 		super();
 		this.setIdExemplaire( idExemplaire);
 		this.setDateAchat(dateAchat);
 		this.setStatus(status);
 		this.setIsbn ( isbn);
+		this.setLivre(livre);
 		this.setTheEmpruntEnCours(theEmpruntEnCours);
 	}
 //Getteur et Setteur
@@ -76,6 +78,14 @@ public class Exemplaire
 		this.isbn = isbn;
 	}
 	
+	public Livre getLivre() {
+		return livre;
+	}
+	
+	public void setLivre(Livre livre) {
+		this.livre = livre;
+	}
+	
 	public EmpruntEnCours getTheEmpruntEnCours() {
 		return theEmpruntEnCours;
 	}
@@ -87,7 +97,8 @@ public class Exemplaire
 @Override
 	public String toString() {
 		return "Exemplaire [getIdExemplaire()=" + getIdExemplaire() + ", getDateAchat()=" +sdf.format(getDateAchat())
-				+ ", getStatus()=" + getStatus() + ", getIsbn()=" + getIsbn() + ", getTheEmpruntEnCours()=" + getTheEmpruntEnCours() + "]";
+				+ ", getStatus()=" + getStatus() + ", getIsbn()=" + getIsbn() + ", getLivre()=" + getLivre()
+				+ ", getTheEmpruntEnCours()=" + getTheEmpruntEnCours() + "]";
 	}
 
 }

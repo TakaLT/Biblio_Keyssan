@@ -6,7 +6,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Adherent extends Utilisateur 
+import biblio.metier.Serializable;
+
+public class Adherent extends Utilisateur implements java.io.Serializable
 {
    private String[] telephone;
    private static int  nbMaxPrets = 3;

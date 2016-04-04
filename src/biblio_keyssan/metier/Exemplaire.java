@@ -16,9 +16,7 @@ public class Exemplaire
    public EmpruntEnCours theEmpruntEnCours;
    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 //Constructeur
-   /**
-    * @roseuid 5241490A0167
-    */
+
    public Exemplaire() {
     
    }

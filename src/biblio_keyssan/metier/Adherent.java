@@ -9,8 +9,8 @@ import java.util.GregorianCalendar;
 public class Adherent extends Utilisateur 
 {
    private String[] telephone;
-   private static Integer nbMaxPrets = 3;
-   private static Integer dureeMaxPrets = 15;
+   private static int  nbMaxPrets = 3;
+   private static int dureeMaxPrets = 15;
    
    
    //Constructeur
@@ -38,16 +38,16 @@ public class Adherent extends Utilisateur
 	public void setTelephone(String[] telephone) {
 		this.telephone = telephone;
 	}
-	public static Integer getNbMaxPrets() {
+	public static int getNbMaxPrets() {
 		return nbMaxPrets;
 	}
-	public static void setNbMaxPrets(Integer nbMaxPrets) {
+	public static void setNbMaxPrets(int nbMaxPrets) {
 		Adherent.nbMaxPrets = nbMaxPrets;
 	}
-	public static Integer getDureeMaxPrets() {
+	public static int getDureeMaxPrets() {
 		return dureeMaxPrets;
 	}
-	public static void setDureeMaxPrets(Integer dureeMaxPrets) {
+	public static void setDureeMaxPrets(int dureeMaxPrets) {
 		Adherent.dureeMaxPrets = dureeMaxPrets;
 	}
 

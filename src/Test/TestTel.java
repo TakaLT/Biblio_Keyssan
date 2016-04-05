@@ -1,4 +1,4 @@
-package biblio_keyssan.Test;
+package Test;
 
 import java.text.DecimalFormat;
 

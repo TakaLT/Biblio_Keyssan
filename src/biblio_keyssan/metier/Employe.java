@@ -1,5 +1,3 @@
-//Source file: D:\\Biblio\\biblio\\metier\\Employe.java
-
 package biblio_keyssan.metier;
 
 import java.util.GregorianCalendar;

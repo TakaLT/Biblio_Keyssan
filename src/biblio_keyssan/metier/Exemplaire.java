@@ -1,5 +1,3 @@
-//Source file: D:\\Biblio\\biblio\\metier\\Exemplaire.java
-
 package biblio_keyssan.metier;
 
 import java.text.ParseException;
@@ -40,7 +38,7 @@ public class Exemplaire
 		this.setStatus(status);
 		this.setIsbn ( isbn);
 		this.setLivre(livre);
-		this.setTheEmpruntEnCours(theEmpruntEnCours);
+		this.setEmpruntEnCours(theEmpruntEnCours);
 	}
 //Getteur et Setteur
 
@@ -88,13 +86,17 @@ public class Exemplaire
 		return theEmpruntEnCours;
 	}
 	
-	public void setTheEmpruntEnCours(EmpruntEnCours theEmpruntEnCours) {
-		this.theEmpruntEnCours = theEmpruntEnCours;
+	public void setEmpruntEnCours(EmpruntEnCours EmpruntEnCours) {
+		this.theEmpruntEnCours = EmpruntEnCours;
 	}
+ 
+		   
+		   
+	   
 //Override
 @Override
 	public String toString() {
-		return "Exemplaire [getIdExemplaire()=" + getIdExemplaire() + ", getDateAchat()="+sdf1.format(getDateAchat())+", getStatus()=" + getStatus() + ", getIsbn()=" + getIsbn() + ", getLivre()=" + getLivre()
+		return "Exemplaire [getIdExemplaire()=" + getIdExemplaire() + ", getDateAchat()="/*+sdf1.format(getDateAchat())*/ +", getStatus()=" + getStatus() + ", getIsbn()=" + getIsbn() + ", getLivre()=" + getLivre()
 				+ ", getTheEmpruntEnCours()=" + getTheEmpruntEnCours() + "]";
 	}
 

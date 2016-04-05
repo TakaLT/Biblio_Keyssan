@@ -1,5 +1,3 @@
-//Source file: D:\\Biblio\\biblio\\metier\\Personne.java
-
 package biblio_keyssan.metier;
 
 import java.text.SimpleDateFormat;

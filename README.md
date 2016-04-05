@@ -22,5 +22,5 @@ TimeLine:
 			-Ajout des classes DAO: ExemplairesDao, UtilisateurDao
 03/04/2016: -Ajout des construteurs , Getteur, Setteur,toString dans les Classes	
 			-Developpement de la classe Exemplaire DAO
-					
-			
+04/04/2016: Developpement des classes : ExemplaireDao , Utilisateur,Adherent ,Employe, Exemplaire,EmpruntEnCours,Personne et class test					
+05/05/2016: Mise à Jours des classes : ExemplairesDao , UtilisateursDao , Adherent , EmpruntEnCours , Exemplaire , TestAdherentEnRetard 			TestAdherentTroisEmprunts  , TestDeBase			

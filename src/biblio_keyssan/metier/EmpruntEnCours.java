@@ -1,5 +1,3 @@
-//Source file: D:\\Biblio\\biblio\\metier\\EmpruntEnCours.java
-
 package biblio_keyssan.metier;
 
 import java.text.SimpleDateFormat;
@@ -61,7 +59,7 @@ public class EmpruntEnCours
 //Override
 	@Override
 	public String toString() {
-		return "EmpruntEnCours [getExemplaire()=" + getExemplaire() + ", getEmprunteur()=" + getEmprunteur()
+		return "EmpruntEnCours [getExemplaire()=" + getExemplaire().hashCode() + ", getEmprunteur()=" + getEmprunteur().hashCode()
 				+ ", getDateEmprunt()=" + sdf.format(getDateEmprunt()) + "]";
 	}
 }

@@ -1,10 +1,12 @@
+package biblio_keyssan.DAO;
+
 /***********************************************************************
  * Module:  UtilisateursDao.java
  * Author:  takalt
  * Purpose: Defines the Class UtilisateursDao
  ***********************************************************************/
 
-package biblio_keyssan.DAO;
+
 
 import java.util.*;
 

@@ -7,6 +7,8 @@
 package biblio_keyssan.DAO;
 
 import java.util.*;
+
+import biblio_keyssan.metier.EnumStatusExemplaire;
 import biblio_keyssan.metier.Exemplaire;
 
 
@@ -29,6 +31,14 @@ public class ExemplairesDao {
 	
 
 //Methode
+	
+	
+	public void createExemplaire(String dateAchat, String isbn ) {		
+		
+		Exemplaire emp= new Exemplaire( dateAchat, isbn) ;	
+	}
+	
+	
 	public void ajoutExemplaire(Exemplaire ex) {
 	      
 	     // exemplaireDB.add(ex);
@@ -36,13 +46,7 @@ public class ExemplairesDao {
 	   }
 
    public Exemplaire findByKey(int id) {	
-	  /* Exemplaire findEx = null;
-	   for (Exemplaire exemplaire : exemplaireDB) {
-		if(exemplaire.getIdExemplaire()==id )
-			findEx = exemplaire;
-			
-	   }
-	   return findEx;*/
+	  
 	   return exemplaireDB.get(id);
 	   
    }

@@ -14,12 +14,24 @@ public class Exemplaire
    private String isbn;
    public EmpruntEnCours theEmpruntEnCours;
    
-   private static int noId=1;
+   public static int noId=1;
    public SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 //Constructeur
    public Exemplaire() {
 		   super();
 	   }
+   public Exemplaire(String dateAchat, String isbn) {
+		super();
+		this.setIdExemplaire(noId++);
+		try {
+			this.setDateAchat(sdf.parse(dateAchat));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		this.setStatus(status.DISPONIBLE);
+		this.setIsbn (isbn);
+		
+	}
    public Exemplaire(String dateAchat, EnumStatusExemplaire status, String isbn) {
 		super();
 		this.setIdExemplaire(noId++);

@@ -12,13 +12,13 @@ import biblio_keyssan.metier.Exemplaire;
 
 public class ExemplairesDao {
    private HashMap<Integer, Exemplaire> exemplaireDB = new HashMap<Integer,Exemplaire>();  
-   
+   //private ArrayList<Exemplaire> exemplaireDB = new ArrayList<Exemplaire>();
 //Constructeur 
    public ExemplairesDao() {
-	super();
-	}
+		super();
+		}
 //Getteur et Setteur 
-   public HashMap<Integer, Exemplaire> getExemplaireDB() {
+   public HashMap<Integer,Exemplaire> getExemplaireDB() {
 		return exemplaireDB;
 	}
 
@@ -31,13 +31,20 @@ public class ExemplairesDao {
 //Methode
 	public void ajoutExemplaire(Exemplaire ex) {
 	      
-	      exemplaireDB.put(ex.getIdExemplaire(), ex);
+	     // exemplaireDB.add(ex);
+		exemplaireDB.put(ex.getIdExemplaire(), ex);
 	   }
 
-	/** @param id
-    * @pdOid 57c46119-a2af-4dd2-8b89-5ae68518f33c */
-   public Exemplaire findByKey(Integer id) {	   
+   public Exemplaire findByKey(int id) {	
+	  /* Exemplaire findEx = null;
+	   for (Exemplaire exemplaire : exemplaireDB) {
+		if(exemplaire.getIdExemplaire()==id )
+			findEx = exemplaire;
+			
+	   }
+	   return findEx;*/
 	   return exemplaireDB.get(id);
+	   
    }
    
    

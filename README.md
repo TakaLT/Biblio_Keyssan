@@ -4,7 +4,7 @@ Projet Fil Rouge de la formation AFPA Concepteur Developpeur Informatique
 
 Projet: Creation d'un logiciel de gestion pour une bibliothèque
 Cas etudié:
-- Emrunt d'un exemplaire de livre
+- Emprunt d'un exemplaire de livre
 - Retour d'un exemplaire de livre
 - Gestion d'un adhérent
 - Connection 
@@ -22,5 +22,8 @@ TimeLine:
 			-Ajout des classes DAO: ExemplairesDao, UtilisateurDao
 03/04/2016: -Ajout des construteurs , Getteur, Setteur,toString dans les Classes	
 			-Developpement de la classe Exemplaire DAO
+04/04/2016: -Suppresion des classes non utilisées pour les tests
+			-Mise à jours des classes correspondantes
+			
 					
 			

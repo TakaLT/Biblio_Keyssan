@@ -2,6 +2,7 @@
 
 package biblio_keyssan.metier;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -10,21 +11,24 @@ public class Personne
 {
    private String nom;
    private String prenom;
-   private GregorianCalendar dateNaissance;
+   private Date dateNaissance;
    private String sexe;
    
-   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
- //Constructeur 
- 
-   public Personne() 
-   {
+   private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+ //Constructeur  
+   public Personne() {
+	   super();
     
    }
-	public Personne(String nom, String prenom, GregorianCalendar dateNaissance, String sexe) {
+	public Personne(String nom, String prenom, String dateNaissance, String sexe) {
 		super();
 		this.setNom (nom);
 		this.setPrenom (prenom);
-		this.setDateNaissance(dateNaissance);
+		try {
+			this.setDateNaissance(sdf.parse(dateNaissance));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		this.setSexe(sexe);
 	}
 //Getteur et setteur	
@@ -40,11 +44,11 @@ public class Personne
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public GregorianCalendar getDateNaissance() {
+	public Date getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(GregorianCalendar dateNaissance2) {
-		this.dateNaissance = dateNaissance2;
+	public void setDateNaissance(Date date) {
+		this.dateNaissance = date;
 	}
 	public String getSexe() {
 		return sexe;
@@ -55,8 +59,7 @@ public class Personne
 //Override
 	@Override
 	public String toString() {
-		return "Personne [getNom()=" + getNom() + ", getPrenom()=" + getPrenom() + ", getDateNaissance()="
-				+ sdf.format(getDateNaissance().getTime()) + ", getSexe()=" + getSexe() + "]";
+		return "Personne [Nom=" + getNom() + ", Prenom=" + getPrenom() + ", DateNaissance="+ sdf.format(getDateNaissance()) + ", Sexe=" + getSexe() + "]";
 	}
 
 }

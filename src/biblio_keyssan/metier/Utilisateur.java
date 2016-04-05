@@ -2,51 +2,36 @@
 
 package biblio_keyssan.metier;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Utilisateur extends Personne 
 {
-   private Integer idUtilisateur;
+   private  int idUtilisateur;
    private String pwd;
    private String pseudonyme;
-   private EmpruntEnCours empruntEnCours[];
+   private ArrayList<EmpruntEnCours> empruntEnCours = new ArrayList<EmpruntEnCours>();
    
+   private static int noIdu=1000;
 //Constructeur
-   /**
-    * @roseuid 5241490A01F4
-    */
-   public Utilisateur() 
-   {
-    
+   public Utilisateur() {
+	   super();
    }
-   public Utilisateur(Integer idUtilisateur) {
-	   	super();
-		
-		
-	}
-   
-   
-   public Utilisateur(String nom, String prenom, GregorianCalendar dateNaissance, String sexe,Integer idUtilisateur) {
-	super(nom, prenom, dateNaissance, sexe);
-	this.setIdUtilisateur(idUtilisateur);
-}
-public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, EmpruntEnCours[] empruntEnCours) {
-		super();
-		this.setIdUtilisateur(idUtilisateur);
+   public Utilisateur(String nom, String prenom, String dateNaissance, String sexe,String pwd, String pseudo) {
+		super(nom, prenom, dateNaissance, sexe);
+		this.setIdUtilisateur(noIdu++);
 		this.setPwd (pwd);
-		this.setPseudonyme(pseudonyme);
-		this.setEmpruntEnCours(empruntEnCours);
+		this.setPseudonyme(pseudo);
 	}
-//Getteur et Setteur  
-  
-   
-   public Integer getIdUtilisateur() {
+
+//Getteur et Setteur     
+   public int getIdUtilisateur() {
 	return idUtilisateur;
 	}
 	
-	public void setIdUtilisateur(Integer idUtilisateur) {
+	public void setIdUtilisateur(int idUtilisateur) {
 		this.idUtilisateur = idUtilisateur;
 	}
 	
@@ -65,41 +50,52 @@ public Utilisateur(Integer idUtilisateur, String pwd, String pseudonyme, Emprunt
 	public void setPseudonyme(String pseudonyme) {
 		this.pseudonyme = pseudonyme;
 	}
-	
-	/**
-	* @return biblio.metier.EmpruntEnCours[ ]
-	* @roseuid 4CA4A2C2006D
-	*/
-	public EmpruntEnCours[ ] getEmpruntEnCours() {
+
+	public ArrayList<EmpruntEnCours> getEmpruntEnCours() {
 		return empruntEnCours;
 	}	
-	public void setEmpruntEnCours(EmpruntEnCours[] empruntEnCours) {
+	public void setEmpruntEnCours(ArrayList<EmpruntEnCours> empruntEnCours) {
 		this.empruntEnCours = empruntEnCours;
 	}
 	
 //Methode
-	/**
-	* @return Integer
-	* @roseuid 49423A15037A
-	*/
-	public Integer getNbEmpruntsEnCours() {
-		return null;
-	}
-	 /**
-	    * @param ep
-	    * @return Void
-	    * @roseuid 4CA4A34E02FD
-	    */
-	   public void addEmpruntEnCours(EmpruntEnCours ep) {
-		   
-	   }  
+		public int getNbEmpruntsEnCours() {
+			return this.getEmpruntEnCours().size();
+		}
+	
+		public void addEmpruntEnCours(EmpruntEnCours ep) {
+			  this.empruntEnCours.add(ep);
+		}
+	   
+//Polymorphe
+	  
+		
+	   public int  getNbJoursRetards()  {
+		//====== date d'aujourd'hui		
+			Date dtToday = new Date();
+	
+		//====== Retour de l'exemplaire a une date 
+			GregorianCalendar dateR = new GregorianCalendar();
+			dateR.set(2016, 03, 7);
+			Date dateRetour = dateR.getTime();
+
+			
+			//====== Calculer la diff�rence entre les deux dates emprunt� et retour
+			long diff = dateRetour.getTime() - dtToday.getTime() ;
+
+			//===== Convertir de milliseconds à jours
+			diff = diff / 1000 / 60 / 60 / 24 ;
+	
+			int differ=Integer.parseInt(""+diff+"");
+			
+	    return  differ;
+	   }
 	  
 //Override
 	   @Override
 		public String toString() {
-			return "Utilisateur ["+super.toString()+" getIdUtilisateur()=" + getIdUtilisateur() + ", getPwd()=" + getPwd() + ", getPseudonyme()="
-					+ getPseudonyme() + ", getEmpruntEnCours()=" + Arrays.toString(getEmpruntEnCours())
-					+ ", getNbEmpruntsEnCours()=" + getNbEmpruntsEnCours() + "]";
+			return "Utilisateur ["+super.toString()+" IdUtilisateur=" + getIdUtilisateur() + ", Pwd=" + getPwd() + ", Pseudonyme="
+					+ getPseudonyme() + ", NbEmpruntsEnCours=" + getNbEmpruntsEnCours() + "]";
 		}
    
 }

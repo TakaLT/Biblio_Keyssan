@@ -3,19 +3,18 @@
 package biblio_keyssan.metier;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Adherent extends Utilisateur 
 {
-   private String[] telephone;
-   private static Integer nbMaxPrets = 3;
-   private static Integer dureeMaxPrets = 15;
+   private String[] telephone = new String[1];
+   private static int nbMaxPrets = 3;
+   private static int dureeMaxPrets = 15;
    
    
    //Constructeur
-   /**
-    */
    public Adherent() {
 	   super();
     
@@ -24,9 +23,9 @@ public class Adherent extends Utilisateur
 		super();
 		this.telephone = telephone;
 	}
-   public Adherent(String nom, String prenom, GregorianCalendar dateNaissance, String sexe, Integer idUtilisateur,String[] telephone) {
-		super(nom, prenom, dateNaissance, sexe, idUtilisateur);
-		this.telephone = telephone;
+   public Adherent(String nom, String prenom, String dateNaissance, String sexe, String pwd,String pseudo,String telephone) {
+		super(nom, prenom, dateNaissance, sexe,pwd, pseudo);
+		this.setTelephone(telephone);
 	}
    
 //Getteur et Setteur   
@@ -35,43 +34,67 @@ public class Adherent extends Utilisateur
    public String[] getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(String[] telephone) {
-		this.telephone = telephone;
+	public void setTelephone(String telephone) {
+		this.telephone[0] = telephone;
 	}
-	public static Integer getNbMaxPrets() {
+	public static int getNbMaxPrets() {
 		return nbMaxPrets;
 	}
-	public static void setNbMaxPrets(Integer nbMaxPrets) {
+	public static void setNbMaxPrets(int nbMaxPrets) {
 		Adherent.nbMaxPrets = nbMaxPrets;
 	}
-	public static Integer getDureeMaxPrets() {
+	public static  int getDureeMaxPrets() {
 		return dureeMaxPrets;
 	}
-	public static void setDureeMaxPrets(Integer dureeMaxPrets) {
+	public static void setDureeMaxPrets(int dureeMaxPrets) {
 		Adherent.dureeMaxPrets = dureeMaxPrets;
 	}
 
-   /**
-    * @return Boolean
-    */
-   public Boolean isConditionsPretAcceptees() 
-   {
-    return null;
-   }
+//Methode
+	public Boolean isConditionsPretAcceptees() {
+		if(super.getNbEmpruntsEnCours() > getNbMaxPrets() ){
+			try {
+				throw new BiblioException("Le nombre Max d'emprunt est attteint!!!");
+			} catch (BiblioException e) {				
+				e.printStackTrace();
+			}
+			return false;
+		}else if (getNbJoursRetards() >=  getDureeMaxPrets()) {
+			try {
+				throw new BiblioException("Un Exmeplaire a depassé la durée limite d'empreint!!");
+			} catch (BiblioException e) {				
+				e.printStackTrace();
+			}
+			return false;
+		}
+			return true;
+	}
+		public int  getNbRetards() {
+			
+			Date dtToday = new Date();
+					
+			//====== Retour de l'exemplaire
+			GregorianCalendar dateR = new GregorianCalendar();
+			dateR.set(2016, 03,30);
+			Date dateRetour = dateR.getTime();
+					
+			//====== Calculer la diff�rence entre les deux dates emprunt� et retour
+			long diff = dateRetour.getTime() - dtToday.getTime() ;
+			
+			//===== Convertir de milliseconds � jours
+			diff = diff / 1000 / 60 / 60 / 24 ;
+			//	System.out.println(diff);		
+				int diff2=Integer.parseInt(""+diff+"");
+			
+			return  diff2;
+	   }
    
-   /**
-    * @return Integer
-    */
-   public Integer getNbRetards() 
-   {
-    return null;
-   }
+		 
+
 //Override
 	@Override
 	public String toString() {
-		return "Adherent ["+super.toString()+"Telephone=" + Arrays.toString(getTelephone()) + ", isConditionsPretAcceptees="
-				+ isConditionsPretAcceptees() + ", NbRetards=" + getNbRetards() + ", EmpruntEnCours="
-				+ Arrays.toString(getEmpruntEnCours()) + ", NbEmpruntsEnCours=" + getNbEmpruntsEnCours() + "]";
+		return "Adherent ["+super.toString()+"Telephone=" + Arrays.toString(getTelephone()) + ", NbRetards=" + getNbRetards() + "]";
 	}
    
 }

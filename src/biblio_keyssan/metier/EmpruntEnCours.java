@@ -2,6 +2,8 @@
 
 package biblio_keyssan.metier;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EmpruntEnCours 
@@ -9,45 +11,32 @@ public class EmpruntEnCours
    private Date dateEmprunt;
    private Exemplaire exemplaire;
    private Utilisateur emprunteur;
+   public SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 //Constructeur
-   /**
-    * @roseuid 5241490A01C5
-    */
-   public EmpruntEnCours() 
-   {
-    
+   
+   public EmpruntEnCours() {
+	   super();
    }
    
-   /**
-    * @param ex
-    * @roseuid 4CE01EEB035B
-    */
-   public EmpruntEnCours(Exemplaire ex)    {
-	   this.setExemplaire(ex);
+   public EmpruntEnCours(Exemplaire ex)  {
+	   	this.setExemplaire(ex);
    }
    
-   /**
-    * @param ex
-    * @param d
-    * @roseuid 4CE0090902CE
-    */
-   public EmpruntEnCours(Exemplaire ex, Date d) {
+   public EmpruntEnCours(Exemplaire ex, String date) {
 	   this(ex);
-	   this.setDateEmprunt(d);
+	   try {
+		this.setDateEmprunt(sdf.parse(date));
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
    }
    
-	public EmpruntEnCours(Date dateEmprunt, Exemplaire exemplaire, Utilisateur emprunteur) {
+	public EmpruntEnCours(Exemplaire exemplaire,String dateEmprunt,  Utilisateur emprunteur) {
 		this(exemplaire, dateEmprunt);
 		this.emprunteur = emprunteur;
 	}
 
 //Getteur et Setteur
-   
-   /**
-    * @param d
-    * @return Void
-    * @roseuid 4CA4A51A038A
-    */
    public void setDateEmprunt(Date d) {
 	   this.dateEmprunt = d;
    }
@@ -74,7 +63,6 @@ public class EmpruntEnCours
 //Override
 	@Override
 	public String toString() {
-		return "EmpruntEnCours [getExemplaire()=" + getExemplaire() + ", getEmprunteur()=" + getEmprunteur()
-				+ ", getDateEmprunt()=" + getDateEmprunt() + "]";
+		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire() + ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ", DateEmprunt=" + sdf.format(getDateEmprunt()) +"]";
 	}
 }

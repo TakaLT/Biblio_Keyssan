@@ -1,13 +1,16 @@
 package biblio_keyssan.Test;
 
 import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 
 import biblio_keyssan.DAO.ExemplairesDao;
+import biblio_keyssan.DAO.UtilisateursDao;
 import biblio_keyssan.metier.Adherent;
 import biblio_keyssan.metier.Employe;
+import biblio_keyssan.metier.EmpruntEnCours;
 import biblio_keyssan.metier.EnumCategorieEmploye;
 import biblio_keyssan.metier.EnumStatusExemplaire;
 import biblio_keyssan.metier.Exemplaire;
@@ -16,47 +19,69 @@ import biblio_keyssan.metier.Utilisateur;
 public class TestDeBase {
 
 	public static void main(String[] args) {
-		// Creation d'exemplaire
-		Exemplaire ex1 = new Exemplaire(1, "25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
-		System.out.println(ex1.toString());
-		Exemplaire ex2 = new Exemplaire(2, "18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN002") ;
-		System.out.println(ex2.toString());
-		Exemplaire ex3 = new Exemplaire(3, "18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN003") ;
-		System.out.println(ex3.toString());
-		
-		//Creation DAO
+			
+		//Creation de la base DAO Exemplaires
 		ExemplairesDao DAO1 = new ExemplairesDao();
 		
-		//Dans la base DAO
-		DAO1.ajoutExemplaire(ex1);
-		DAO1.ajoutExemplaire(ex2);
-		DAO1.ajoutExemplaire(ex3);
-
-		//Affchage DAO
-		System.out.println("Affichage de la DAO"+DAO1.getExemplaireDB());
-		//Recherche d'un exemplaire par la key
-		System.out.println("Recherche dans la Dao de la key 2: "+DAO1.findByKey(2));
 		
+		//Appel de la methode find 
+		System.out.println("Recherche dans la Dao de la key 1: "+DAO1.findByKey(1));
+				
+		// Creation d'un exemplaire
+		Exemplaire ex1 = new Exemplaire( "25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
+		System.out.println(ex1.toString());
+		DAO1.ajoutExemplaire(ex1);
+		System.out.println("Recherche dans la Dao de la key 1: "+DAO1.findByKey(1));
+		
+		//Creation de'un deuxieme exemplaire
+		Exemplaire ex2 = new Exemplaire( "18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN002") ;
+		System.out.println(ex2.toString());
+		DAO1.ajoutExemplaire(ex2);
+		System.out.println("Recherche dans la exemplaireDao de la key 2: "+DAO1.findByKey(2));
+		
+		
+		//Creation de la base Utilisateurs
+		UtilisateursDao DAO2 =new UtilisateursDao();		
+		System.out.println("Recherche dans la UtilisateurDao de la key 1000: "+DAO2.findByKey(1000));
 		
 		//Creation d'un Adherent
-		GregorianCalendar dt = new GregorianCalendar();
-		dt.set(2000, 05, 20);
-		String[]tel ={"0245986570"};
-		Adherent ad = new Adherent("NomAdherent","PrenomAdherent",dt, "Feminin", 1,tel);
+		Adherent ad = new Adherent("NomAdherent","PrenomAdherent","09/05/2000", "Feminin","pwd","pseudo","0245986570");
 		System.out.println(ad.toString());
+		DAO2.ajoutUtilisateur(ad);
+		System.out.println("Recherche dans la UtilisateurDao de la key 1000: "+DAO2.findByKey(1000));
+		
 		//Creation d'un employé
-		GregorianCalendar dte = new GregorianCalendar();
-		dte.set(1980,02, 15);
-		Employe em = new Employe("NomEmploye","PrenomEmploye",dte, "Feminin", 1,"matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
+		Employe em = new Employe("NomEmploye","PrenomEmploye","15/03/1980", "Feminin","pwd","pseudo","matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
 		System.out.println(em.toString());
-		//Recherche d'un Adherent par son Id
+		DAO2.ajoutUtilisateur(em);
+		System.out.println("Recherche dans la utilisateurDao de la key 1001: "+DAO2.findByKey(1001));
+		
+		//Creation d'un emprunt en cours
+		//Emprunt d'un exemplaire à la date du jour
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		Date dtToDay = new Date();
+		//Premier Emprunt pour un adherent
+		EmpruntEnCours emC1 = new EmpruntEnCours(ex1,sdf.format(dtToDay),ad);
+		//ajout d'un emprunt en cours a un adherent
+		ad.addEmpruntEnCours(emC1);
+		//ajout d'un emprunt a un exemplaire changement de status
+		ex1.setTheEmpruntEnCours(emC1);
+		System.out.println(ad.toString());
+		
+		//Deuxieme emprunt pour un employé
+		EmpruntEnCours emC2 = new EmpruntEnCours(ex2,sdf.format(dtToDay),em);
+		//ajout d'un emprunt en cours a un adherent
+		em.addEmpruntEnCours(emC2);
+		//ajout d'un emprunt a un exemplaire
+		ex2.setTheEmpruntEnCours(emC2);
+		System.out.println(em.toString());
+		
+		//Affichage des emprunts en cours 
+		System.out.println(emC1);
+		System.out.println(emC2);
+
 		
 		
-		//Recherche d'un employé par son Id
-		
-		//Creation d'un emprunt en cours pour un adhérent
-		
-		//Création d'un emprunt en cours pour un employé
 		
 	}
 

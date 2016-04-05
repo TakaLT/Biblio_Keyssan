@@ -30,10 +30,12 @@ public class UtilisateursDao {
 		public void setExemplaireDB(HashMap<Integer, Utilisateur> utilisateurDB) {
 			this.utilisateurDB = utilisateurDB;
 		}
-   
-	   /** @param id
-	    * @pdOid 28336ecf-41de-43d9-a567-62dd74929ba8 */
-	   public Utilisateur findByKey(Integer id) {
+		
+		public void ajoutUtilisateur(Utilisateur ut) {
+			utilisateurDB.put(ut.getIdUtilisateur(), ut);
+		   }
+
+	   public Utilisateur findByKey(int id) {
 	      
 		   return utilisateurDB.get(id);
 	   }

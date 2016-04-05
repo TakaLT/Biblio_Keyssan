@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 public class Utilisateur extends Personne 
 {
    public int idUtilisateur;
@@ -72,6 +74,7 @@ public class Utilisateur extends Personne
 	}	
 	public void setEmpruntEnCours(ArrayList<EmpruntEnCours> empruntEnCours) {
 		this.empruntEnCours = empruntEnCours;
+		
 	}
 	
 //Methode
@@ -83,6 +86,71 @@ public class Utilisateur extends Personne
 	   public void addEmpruntEnCours(EmpruntEnCours ep) {
 		  this.empruntEnCours.add(ep);
 	   }  
+	   
+	   public void removeEmpruntEnCours(EmpruntEnCours ep) {
+		   int index = 0;
+		   for (int i = 0; i < empruntEnCours.size(); i++) {
+			   if (empruntEnCours.equals(ep)) {
+				index=i;
+			}
+			   
+		}
+		   this.empruntEnCours.remove(index);
+		   //mise a null de l'exemplaire
+		   //ep.getExemplaire().setEmpruntEnCours(null);
+		   ep.setEmprunteur(null);
+		   ep.setExemplaire(null);
+		   //suppression de l'emprunt pour l'adherent
+			
+					  
+		} 
+	   
+//Polymorphe
+	   public Boolean isConditionsPretAcceptees() 
+	   {
+		/*if(getNbJoursRetards() >= 15) {
+			try {
+					throw new BiblioException("Un Exmeplaire a depassé la durée limite d'empreint!!");
+				} catch (BiblioException e) {
+					
+					e.printStackTrace();
+				}
+				return false;
+			}*/
+				return true;
+	}
+		public int  getNbJoursRetards() 
+	   {
+		//====== date d'aujourd'hui
+			//Adherent ad= this()
+			//EmpruntEnCours emp = this.getEmpruntEnCours();
+			
+			GregorianCalendar dateA = new GregorianCalendar();
+			
+	//		System.out.println(sdf.format(dateA.getTime()));
+			//Date dtToday = dateA.getTime();
+			Date dtToday = new Date();
+			EmpruntEnCours emp1 = new EmpruntEnCours();
+			
+	///		System.out.println(this.getEmpruntEnCours());
+	//		System.out.println(this.getNbEmpruntsEnCours());
+			
+			//====== Retour de l'exemplaire
+			GregorianCalendar dateR = new GregorianCalendar();
+			dateR.set(2016, 03, 7);
+			Date dateRetour = dateR.getTime();
+	//		System.out.println(sdf.format(dateR.getTime()));
+			
+			//====== Calculer la diff�rence entre les deux dates emprunt� et retour
+			long diff = dateRetour.getTime() - dtToday.getTime() ;
+			
+			//int diff2=;
+			//===== Convertir de milliseconds � jours
+			diff = diff / 1000 / 60 / 60 / 24 ;
+	//		System.out.println(diff);		
+			int diff2=Integer.parseInt(""+diff+"");
+	    return  diff2;
+	   }
 	  
 //Override
 	   @Override

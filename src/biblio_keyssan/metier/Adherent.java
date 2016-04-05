@@ -78,19 +78,19 @@ public class Adherent extends Utilisateur
 		
 		GregorianCalendar dateA = new GregorianCalendar();
 		
-		System.out.println(sdf.format(dateA.getTime()));
+		//System.out.println(sdf.format(dateA.getTime()));
 		//Date dtToday = dateA.getTime();
 		Date dtToday = new Date();
 		EmpruntEnCours emp1 = new EmpruntEnCours();
 		
-		System.out.println(this.getEmpruntEnCours());
-		System.out.println(this.getNbEmpruntsEnCours());
+		//System.out.println(this.getEmpruntEnCours());
+		//System.out.println(this.getNbEmpruntsEnCours());
 		
 		//====== Retour de l'exemplaire
 		GregorianCalendar dateR = new GregorianCalendar();
 		dateR.set(2016, 03, 7);
 		Date dateRetour = dateR.getTime();
-		System.out.println(sdf.format(dateR.getTime()));
+		//System.out.println(sdf.format(dateR.getTime()));
 		
 		//====== Calculer la diff�rence entre les deux dates emprunt� et retour
 		long diff = dateRetour.getTime() - dtToday.getTime() ;
@@ -98,7 +98,7 @@ public class Adherent extends Utilisateur
 		//int diff2=;
 		//===== Convertir de milliseconds � jours
 		diff = diff / 1000 / 60 / 60 / 24 ;
-		System.out.println(diff);		
+	//	System.out.println(diff);		
 		int diff2=Integer.parseInt(""+diff+"");
     return  diff2;
    }

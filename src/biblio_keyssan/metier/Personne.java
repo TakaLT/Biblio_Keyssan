@@ -53,7 +53,7 @@ public class Personne
 //Override
 	@Override
 	public String toString() {
-		return "Personne [getNom()=" + getNom() + ", getPrenom()=" + getPrenom() + ", getDateNaissance()="
+		return "Personne [Nom=" + getNom() + ",tPrenom=" + getPrenom() + ", DateNaissance="
 				+ sdf.format(getDateNaissance().getTime()) + ", getSexe()=" + getSexe() + "]";
 	}
 

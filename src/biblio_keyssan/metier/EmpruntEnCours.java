@@ -62,4 +62,12 @@ public class EmpruntEnCours
 		return "EmpruntEnCours [getExemplaire()=" + getExemplaire().hashCode() + ", getEmprunteur()=" + getEmprunteur().hashCode()
 				+ ", getDateEmprunt()=" + sdf.format(getDateEmprunt()) + "]";
 	}
+
+
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("Fin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		super.finalize();
+	}
+
 }

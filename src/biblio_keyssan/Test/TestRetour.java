@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import biblio_keyssan.DAO.EmpruntArchiveDao;
 import biblio_keyssan.DAO.UtilisateursDao;
 import biblio_keyssan.metier.Adherent;
 import biblio_keyssan.metier.EmpruntArchive;
@@ -19,9 +20,9 @@ public class TestRetour {
 		// Creation des exemplaires
 		//
 		
-		Exemplaire ex1 = new Exemplaire(1, "25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
+		Exemplaire ex1 = new Exemplaire("25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
 		System.out.println(ex1.toString());
-		Exemplaire ex2 = new Exemplaire(2, "18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN002") ;
+		Exemplaire ex2 = new Exemplaire("18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN002") ;
 		System.out.println(ex2.toString());
 		
 		
@@ -30,10 +31,7 @@ public class TestRetour {
 		UtilisateursDao  UtilisateurDao1= new UtilisateursDao();
 		
 		//============ Creation d'un Adherent
-		GregorianCalendar dt = new GregorianCalendar();
-		dt.set(2000, 05, 20);
-		String[] tel = {"0245986570"};
-		Adherent ad = new Adherent("NomAdherent","PrenomAdherent",dt, "Femme",1000, tel);
+		Adherent ad = new Adherent("NomAdherent","PrenomAdherent","05/02/1985", "Femme","pwd","psd","058956585");
 		System.out.println(ad.toString());
 		System.out.println();
 		
@@ -44,17 +42,15 @@ public class TestRetour {
 		
 		//======== Creation d'un emprunt en cours pour l'adh�rent
 		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-		GregorianCalendar dateA = new GregorianCalendar();
-		System.out.println(sdf.format(dateA.getTime()));
-		Date dtToday = dateA.getTime();
+		Date dtToday = new Date();
 		
-		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad , dtToday);
+		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad , sdf.format(dtToday));
 		ad.addEmpruntEnCours(emp1);
 		ex1.setEmpruntEnCours(emp1);
 		ex1.setStatus(EnumStatusExemplaire.PRETE);
 		
 		//======== Creation 2 ieme  emprunt en cours pour l'adh�rent
-		EmpruntEnCours emp2 = new EmpruntEnCours(ex2, ad , dtToday);
+		EmpruntEnCours emp2 = new EmpruntEnCours(ex2, ad ,sdf.format(dtToday));
 		ad.addEmpruntEnCours(emp2);
 		ex2.setEmpruntEnCours(emp2);
 		ex2.setStatus(EnumStatusExemplaire.PRETE);
@@ -73,6 +69,10 @@ public class TestRetour {
 		//Enregistrement dans l'archive
 		EmpruntArchive emA = new EmpruntArchive(sdf.parse("05/04/2016"),sdf.parse("01/04/2016"), ad, ex1);
 		System.out.println("Emprunt archive "+emA);
+		//Ajout a la base DAO
+		EmpruntArchiveDao eaDao = new EmpruntArchiveDao();
+		eaDao.ajoutEmpruntArchive(emA);
+		System.out.println("Taille de l'archive "+eaDao.getEmpruntArchiveDataBase().size());
 		//liberation de l'objet emprunt en cours
 		System.out.println(ad);
 		//utilisateur perd la reference de l'ojet emprunt en cours

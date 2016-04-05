@@ -26,11 +26,11 @@ public class TestDeBase {
 		// Creation des exemplaires
 		//
 		
-		Exemplaire ex1 = new Exemplaire(1, "25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
+		Exemplaire ex1 = new Exemplaire("25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
 		System.out.println(ex1.toString());
-		Exemplaire ex2 = new Exemplaire(2, "18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN002") ;
+		Exemplaire ex2 = new Exemplaire("18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN002") ;
 		System.out.println(ex2.toString());
-		Exemplaire ex3 = new Exemplaire(3, "18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN003") ;
+		Exemplaire ex3 = new Exemplaire("18/03/2012", EnumStatusExemplaire.DISPONIBLE,"ISBN003") ;
 		System.out.println(ex3.toString());
 		
 		//============ Creation d'un Data base des Exemplaires (DAO)
@@ -52,18 +52,13 @@ public class TestDeBase {
 		System.out.println();
 		
 		//============ Creation d'un Adherent
-		GregorianCalendar dt = new GregorianCalendar();
-		dt.set(2000, 05, 20);
-		String[] tel = {"0245986570"};
-		Utilisateur ad = new Adherent("NomAdherent","PrenomAdherent",dt, "Femme",1000, tel);
+		Adherent ad = new Adherent("NomAdherent","PrenomAdherent","05/02/1985", "Femme","pwd","psd","058956585");
 		System.out.println(ad.toString());
 		System.out.println();
 		
 		//=========== Creation d'un employ�
-		
-		GregorianCalendar BirthDte = new GregorianCalendar();
-		BirthDte.set(1980,02, 15);
-		Utilisateur em = new Employe("NomEmploye","PrenomEmploye",BirthDte, "Femme" ,1002,"matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
+
+		Employe em = new Employe("NomEmploye","PrenomEmploye","25/05/1980", "Femme" ,"pwd","pseudo","matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
 		System.out.println(em.toString());
 		System.out.println();
 		
@@ -89,11 +84,10 @@ public class TestDeBase {
 		
 		//======== Creation d'un emprunt en cours pour un adh�rent
 		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-		GregorianCalendar dateA = new GregorianCalendar();
 		
-		System.out.println(sdf.format(dateA.getTime()));
-		Date dtToday = dateA.getTime();
-		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad , dtToday);
+	
+		Date dtToday = new Date();
+		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad , sdf.format(dtToday));
 		ad.addEmpruntEnCours(emp1);
 		ex1.setEmpruntEnCours(emp1);
 		ex1.setStatus(EnumStatusExemplaire.PRETE);
@@ -124,7 +118,7 @@ public class TestDeBase {
 //	
 		
 		//======= Cr�ation d'un emprunt en cours pour un employ�
-		EmpruntEnCours emp3 = new EmpruntEnCours(ex3, em , dtToday);
+		EmpruntEnCours emp3 = new EmpruntEnCours(ex3, em , sdf.format(dtToday));
 		em.addEmpruntEnCours(emp3);
 		ex3.setEmpruntEnCours(emp3);
 		

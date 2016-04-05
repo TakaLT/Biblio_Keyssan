@@ -15,7 +15,7 @@ public class TestEmployeEnRetard {
 		//Preparation 
 				//====== Creation d'un exemplaire
 				
-				Exemplaire ex1 = new Exemplaire(1, "25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
+				Exemplaire ex1 = new Exemplaire("25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
 				System.out.println(ex1.toString());
 				
 				//====== Creation d'un employé
@@ -23,12 +23,10 @@ public class TestEmployeEnRetard {
 				GregorianCalendar dt = new GregorianCalendar();
 				dt.set(2000, 05, 20);
 				String[]tel ={"0245986570"};
-				Employe emp = new Employe("NomAdherent","PrenomAdherent",dt, "Feminin",1000,"001",EnumCategorieEmploye.BIBLIOTHECAIRE);
+				Employe emp = new Employe("NomEmploye","PrenomEmploye","25/05/1980", "Femme" ,"pwd","pseudo","matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
 				
 				//===== Emprunt d'un exemplaire
 				
-				SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-		
 				System.out.println("nombre de jours"+emp.getNbJoursRetards());
 				
 				System.out.println(emp.isConditionsPretAcceptees());

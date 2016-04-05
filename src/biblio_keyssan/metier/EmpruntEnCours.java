@@ -10,7 +10,9 @@ public class EmpruntEnCours
 	private Date dateEmprunt;
 	private Exemplaire exemplaire;
 	private Utilisateur emprunteur;
-	private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	
+	private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");	
+	Date dtToday = new Date();
 //Constructeur
    
    public EmpruntEnCours() {
@@ -23,6 +25,7 @@ public class EmpruntEnCours
   public EmpruntEnCours(Exemplaire exemplaire, Utilisateur emprunteur) {
 		this(exemplaire);
 		this.setEmprunteur(emprunteur);
+		this.setDateEmprunt(dtToday);
 	} 
   public EmpruntEnCours(Exemplaire exemplaire, Utilisateur emprunteur, String dateA) {
 		this(exemplaire,emprunteur );

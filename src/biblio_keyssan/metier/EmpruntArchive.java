@@ -6,6 +6,9 @@
 
 package biblio_keyssan.metier;
 
+
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -17,10 +20,12 @@ public class EmpruntArchive {
    private Utilisateur emprunteur;   
    private Exemplaire exemplaire;
    
+
    
    private SimpleDateFormat sdf1=new SimpleDateFormat("dd/MM/yyyy");
    
    private Date dtrestitution = new Date(); 
+
 
 // Constructeur
    public EmpruntArchive() {
@@ -41,10 +46,15 @@ public class EmpruntArchive {
 		this.setExemplaire(exemplaire);
 	}
 
-	public EmpruntArchive(Date dateRestitutionEff, Date dateEmprunt, Utilisateur emprunteur, Exemplaire exemplaire) {
+	public EmpruntArchive(String dateRestitutionEff, String dateEmprunt, Utilisateur emprunteur, Exemplaire exemplaire) {
 		super();
-		this.setDateRestitutionEff(dateRestitutionEff);
-		this.setDateEmprunt(dateEmprunt);
+		try {
+		this.setDateRestitutionEff(sdf1.parse(dateRestitutionEff));
+		this.setDateEmprunt(sdf1.parse(dateEmprunt));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.setEmprunteur(emprunteur);
 		this.setExemplaire(exemplaire);
 	}

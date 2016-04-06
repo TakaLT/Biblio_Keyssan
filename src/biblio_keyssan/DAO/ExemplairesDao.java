@@ -8,24 +8,31 @@ package biblio_keyssan.DAO;
 
 
 import java.util.*;
+
+import biblio_keyssan.metier.EnumStatusExemplaire;
 import biblio_keyssan.metier.Exemplaire;
 
 
 public class ExemplairesDao {
+
  //  private HashMap<Integer, Exemplaire> exemplaireDB = new HashMap<Integer,Exemplaire>();  
    
    private ArrayList<Exemplaire> exemplaireDataBase = new ArrayList<Exemplaire>(); 
    
 //====== Constructeur 
+
    public ExemplairesDao() {
+
 	super();
 	}
 //====== Getteur et Setteur 
   /* public HashMap<Integer, Exemplaire> getExemplaireDB() {
 		return exemplaireDB;
 	}
+
   */ public ArrayList<Exemplaire> getExemplaireDB() {
 	   return exemplaireDataBase;
+
    }
 
 	/*public void setExemplaireDB(HashMap<Integer, Exemplaire> exemplaireDB) {

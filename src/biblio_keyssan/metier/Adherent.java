@@ -1,18 +1,20 @@
 package biblio_keyssan.metier;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 
 public class Adherent extends Utilisateur 
 {
+
    private String[] telephone = new String [1];
    private static int  nbMaxPrets = 3;
+
    private static int dureeMaxPrets = 15;
-   
-   
  //Constructeur
+
    public Adherent() {
 	   super();
     
@@ -25,6 +27,7 @@ public class Adherent extends Utilisateur
    public Adherent(String nom, String prenom, String dateNaissance, String sexe, String pwd, String pseudonyme , String telephone) {
 		super(nom, prenom, dateNaissance, sexe ,pwd, pseudonyme );
 		this.setTelephone( telephone);
+
 	}
    
 //Getteur et Setteur      
@@ -32,7 +35,9 @@ public class Adherent extends Utilisateur
 		return telephone;
 	}
 	public void setTelephone(String telephone) {
+
 		this.telephone[0]=telephone;
+
 	}
 	public static int getNbMaxPrets() {
 		return nbMaxPrets;
@@ -40,7 +45,9 @@ public class Adherent extends Utilisateur
 	public static void setNbMaxPrets(int nbMaxPrets) {
 		Adherent.nbMaxPrets = nbMaxPrets;
 	}
+
 	public static int getDureeMaxPrets() {
+
 		return dureeMaxPrets;
 	}
 	public static void setDureeMaxPrets(int dureeMaxPrets) {
@@ -91,6 +98,7 @@ public class Adherent extends Utilisateur
 			
 		return nBExemplaireRetard;
 
+
    }
 
 	
@@ -110,10 +118,13 @@ public class Adherent extends Utilisateur
 	  
 	}  	
 	
+
 //Override
 	@Override
 	public String toString() {
+
 			return "Adherent ["+super.toString()+"telephone=" + Arrays.toString(telephone) + "]";
+
 	}
 
 	

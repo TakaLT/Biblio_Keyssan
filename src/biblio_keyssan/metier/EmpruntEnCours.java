@@ -69,7 +69,7 @@ public class EmpruntEnCours
 
 	@Override
 	protected void finalize() throws Throwable {
-	//	System.out.println("Fin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println("Fin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		super.finalize();
 	}
 

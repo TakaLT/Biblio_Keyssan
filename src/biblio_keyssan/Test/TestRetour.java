@@ -72,7 +72,7 @@ public class TestRetour {
 		System.out.println(ex1.toString());
 		//Enregistrement dans l'archive
 		EmpruntArchive emA = new EmpruntArchive(emp1);	
-		System.out.println("Emprunt archive "+emA);		
+		System.out.println("Creation d'un emprunt à archiver : "+emA);		
 		
 		//Ajout de l'emprunt archivé dans la DAO
 		System.out.println("Nombre d'emprunt en cours d'archivage: "+eaDao.getEmpruntArchiveDataBase().size());
@@ -95,26 +95,23 @@ public class TestRetour {
 		ad.removeEmpruntEnCours(emp1);
 		System.out.println("Colllection d'empunt en cours : "+ad.getEmpruntEnCours());	
 		
-		
-		//Suppression des pointeurs sur l'emprunt en cours		
-		//ad.setEmpruntEnCours(null);
-		//ex1.setEmpruntEnCours(null);
-		
-
 		//Declenchement du garbage collector
 		for (int i = 0; i < 10000; i++) {				
 			
-			EmpruntEnCours i1 = new EmpruntEnCours(ex1, ad );
-			ad.addEmpruntEnCours(i1);
-			ex1.setEmpruntEnCours(i1);
-			ex1.setStatus(EnumStatusExemplaire.PRETE);
+			EmpruntEnCours i1 = new EmpruntEnCours();
+			    
 			
-			ex1.setStatus(EnumStatusExemplaire.DISPONIBLE);	
-			EmpruntArchive i2 = new EmpruntArchive(i1);
-			ad.removeEmpruntEnCours(i1);
-		}
-		
-		//System.out.println(emp1.toString());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			 
+		}		
 
 	}
 

@@ -72,6 +72,7 @@ public abstract class  Utilisateur extends Personne
 	   
 	public void removeEmpruntEnCours(EmpruntEnCours ep) {
 	   int index = 0;
+	  //reccuperation de l'exemplaire dans la list pour le supprimer
 	   for (int i = 0; i < empruntEnCours.size(); i++) {
 		   if (empruntEnCours.equals(ep)) {
 				index=i;
@@ -80,19 +81,19 @@ public abstract class  Utilisateur extends Personne
 		}
 		   this.empruntEnCours.remove(index);
 		
-		 //  ep.setEmprunteur(null);
-		   ep.setExemplaire(null);
+		  ep.setEmprunteur(null);
+		  ep.setExemplaire(null);	
+		  ep=null;
+	}
 	
-			
-					  
-	} 
+	
 	   
 //Polymorphe
 	   public Boolean isConditionsPretAcceptees()  {
 			return true;
 	   }
 		
-	   public int  getNbJoursRetards()  {
+	  /* public int  getNbJoursRetards()  {
 		//====== date d'aujourd'hui		
 			Date dtToday = new Date();
 	
@@ -111,7 +112,7 @@ public abstract class  Utilisateur extends Personne
 			int differ=Integer.parseInt(""+diff+"");
 			
 	    return  differ;
-	   }
+	   }*/
 	  
 //Override
 	   @Override

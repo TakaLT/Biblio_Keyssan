@@ -109,8 +109,7 @@ public class Adherent extends Utilisateur
 			}
 		}
 	  
-	}  
-	
+	}  	
 	
 //Override
 	@Override

@@ -85,10 +85,7 @@ public class TestAdherentTroisEmprunts {
 	
 			//======= isConditionPretAcceptees()
 			//System.out.println(ad.isConditionsPretAcceptees());
-			
-	
-	
-			//======= BiblioException
+
 	}
 
 }

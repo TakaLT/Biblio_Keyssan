@@ -15,7 +15,7 @@ public class Utilisateur extends Personne
    private String pseudonyme;
    private ArrayList<EmpruntEnCours>  empruntEnCours = new ArrayList<EmpruntEnCours>();
    
-   private static int noIdUniqueUt;
+   private static int noIdUniqueUt=1000;
 //Constructeur
    public Utilisateur()   {
 	   super(); 

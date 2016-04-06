@@ -34,6 +34,7 @@ public class EmpruntEnCours
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}		
+ 
 	}
    
 //Getteur et Setteur 
@@ -71,6 +72,7 @@ public class EmpruntEnCours
 	protected void finalize() throws Throwable {
 		System.out.println("Fin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		super.finalize();
+	
 	}
 
 }

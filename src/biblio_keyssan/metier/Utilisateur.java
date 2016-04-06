@@ -30,7 +30,7 @@ public abstract class  Utilisateur extends Personne
  
 //Getteur et Setteur      
    public int getIdUtilisateur() {
-	return idUtilisateur;
+  	return idUtilisateur;
 	}
 	
 	public void setIdUtilisateur(int idUtilisateur) {
@@ -114,6 +114,7 @@ public abstract class  Utilisateur extends Personne
 			
 	    return  differ;
 	   }*/
+
 	  
 //Override
 	   @Override

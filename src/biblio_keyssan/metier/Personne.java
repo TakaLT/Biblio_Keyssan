@@ -21,6 +21,7 @@ public abstract class Personne
    }
  
    public Personne(String nom, String prenom, String dateNaissance, String sexe) {
+
 		super();
 		this.setNom (nom);
 		this.setPrenom (prenom);

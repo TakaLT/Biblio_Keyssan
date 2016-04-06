@@ -30,6 +30,9 @@ public class TestDeBase {
 		
 		// ============ Creation de la Dao exemplaire
 		Exemplaire ex1 = new Exemplaire("25/05/2015","ISBN001") ;
+		
+			
+		
 		System.out.println(ex1.toString());
 		//ajout  de l'exemplaire
 		DAO1.ajoutExemplaire(ex1);
@@ -38,6 +41,7 @@ public class TestDeBase {
 		System.out.println();
 		
 		Exemplaire ex2 = new Exemplaire("18/03/2012","ISBN002") ;
+		
 		System.out.println(ex2.toString());
 		DAO1.ajoutExemplaire(ex2);
 		//Recherche de l'exemplaire
@@ -66,6 +70,7 @@ public class TestDeBase {
 
 
 		
+		
 		//======== Creation d'un emprunt en cours pour un adh�rent
 
 		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad );
@@ -73,14 +78,13 @@ public class TestDeBase {
 		ex1.setEmpruntEnCours(emp1);
 		ex1.setStatus(EnumStatusExemplaire.PRETE);
 		
+		
 		System.out.println("===========================");
 		
-		//======= Création d'un emprunt en cours pour un employé
-		EmpruntEnCours emp2 = new EmpruntEnCours(ex2, em );
-		em.addEmpruntEnCours(emp2);
-		ex2.setEmpruntEnCours(emp2);
-		ex2.setStatus(EnumStatusExemplaire.PRETE);
 		
+	
+		
+
 		
 		//======= Affichage des emprunt en cours
 		System.out.println(emp1);
@@ -89,6 +93,7 @@ public class TestDeBase {
 		//===========Affichage emprunt par personne
 		System.out.println("Nombre d'emprunt pour l'adherent 1000 : "+ad.getNbEmpruntsEnCours());
 		System.out.println("Nombre de'emprunt pour l'employe 1001 : "+em.getNbEmpruntsEnCours());
+	
 		
 	}
 	

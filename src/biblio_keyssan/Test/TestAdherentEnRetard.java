@@ -13,6 +13,7 @@ import biblio_keyssan.metier.EnumStatusExemplaire;
 import biblio_keyssan.metier.Exemplaire;
 import biblio_keyssan.metier.Utilisateur;
 
+
 public class TestAdherentEnRetard {
 	
 	public static void main(String[] args) {
@@ -69,7 +70,6 @@ public class TestAdherentEnRetard {
 		ex2.setEmpruntEnCours(emp2);
 		ex2.setStatus(EnumStatusExemplaire.PRETE);*/
 
-		
 
 	}
 

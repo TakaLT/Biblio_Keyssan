@@ -21,7 +21,7 @@ public class EmpruntArchive {
    private SimpleDateFormat sdf1=new SimpleDateFormat("dd/MM/yyyy");
    
    private Date dtrestitution = new Date(); 
-   
+
 // Constructeur
    public EmpruntArchive() {
       

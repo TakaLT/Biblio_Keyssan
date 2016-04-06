@@ -38,11 +38,11 @@ public class Exemplaire
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
 		this.setStatus(status);
 		this.setIsbn ( isbn);
 		
 	}
-
 
 //Getteur et Setteur
 	public int getIdExemplaire() {
@@ -76,7 +76,6 @@ public class Exemplaire
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-
 	public EmpruntEnCours getTheEmpruntEnCours() {
 		return theEmpruntEnCours;
 	}

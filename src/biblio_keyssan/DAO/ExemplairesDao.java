@@ -47,11 +47,11 @@ public class ExemplairesDao {
 	
 		this.exemplaireDataBase.add(ex);
 	}  
-
+	
    public Exemplaire findByKey(int id) {	
 	   
 	   return exemplaireDataBase.get(id-1);
-   }
+     }
    
    
    

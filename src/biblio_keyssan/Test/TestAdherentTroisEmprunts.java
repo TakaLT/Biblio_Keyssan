@@ -80,7 +80,7 @@ public class TestAdherentTroisEmprunts {
 			ex4.setStatus(EnumStatusExemplaire.PRETE);
 
 
-
+	
 	}
 
 }

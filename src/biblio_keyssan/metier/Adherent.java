@@ -13,7 +13,6 @@ public class Adherent extends Utilisateur
    
    
  //Constructeur
-
    public Adherent() {
 	   super();
     
@@ -93,6 +92,7 @@ public class Adherent extends Utilisateur
 		return nBExemplaireRetard;
 
    }
+
 	
 	public void addEmpruntEnCours(EmpruntEnCours ep) {
 		boolean bo;

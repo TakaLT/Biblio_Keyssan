@@ -46,7 +46,7 @@ public class TestAdherentTroisEmprunts {
 			System.out.println(ad.toString());
 			System.out.println();
 	
-			//=========== Ajouter dans la Data base des Utilisateurs : adherent et employ�
+			//=========== Ajouter dans la Data base des Utilisateurs : adherent et employé
 			UtilisateurDao1.ajoutUtilisateur(ad);
 
 
@@ -58,7 +58,7 @@ public class TestAdherentTroisEmprunts {
 			ex1.setStatus(EnumStatusExemplaire.PRETE);
 			System.out.println(emp1);
 	
-			//======== Creation 2 ieme  emprunt en cours pour l'adh�rent
+			//======== Creation 2 ieme  emprunt en cours pour l'adhérent
 			EmpruntEnCours emp2 = new EmpruntEnCours(ex2, ad );
 			ad.addEmpruntEnCours(emp2);
 			ex2.setEmpruntEnCours(emp2);
@@ -71,20 +71,15 @@ public class TestAdherentTroisEmprunts {
 			ex3.setEmpruntEnCours(emp3);
 			ex3.setStatus(EnumStatusExemplaire.PRETE);
 			System.out.println(emp3);
+
 	
-			//======= isConditionPretAcceptees()
-			//System.out.println(ad.isConditionsPretAcceptees());
-	
-			//======== Creation 4 ieme  emprunt en cours pour l'adh�rent
+		//======== Creation 4 ieme  emprunt en cours pour l'adh�rent
 			EmpruntEnCours emp4 = new EmpruntEnCours(ex4, ad );
 			ad.addEmpruntEnCours(emp4);
 			ex4.setEmpruntEnCours(emp4);
 			ex4.setStatus(EnumStatusExemplaire.PRETE);
 
-	
-	
-			//======= isConditionPretAcceptees()
-			//System.out.println(ad.isConditionsPretAcceptees());
+
 
 	}
 

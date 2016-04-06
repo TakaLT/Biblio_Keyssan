@@ -100,8 +100,7 @@ public class Adherent extends Utilisateur
 		if (bo==true) {
 			super.addEmpruntEnCours(ep);
 			
-		} else {
-			
+		} else {			
 			try {
 				throw new BiblioException();
 			} catch (BiblioException e) {

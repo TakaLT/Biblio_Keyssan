@@ -94,6 +94,7 @@ public abstract class  Utilisateur extends Personne
 	   }
 		
 	  /* public int  getNbJoursRetards()  {
+	   ///////////////////////////////////////////////////////en prevision de prochaine demande
 		//====== date d'aujourd'hui		
 			Date dtToday = new Date();
 	

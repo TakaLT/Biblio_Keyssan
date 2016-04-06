@@ -26,4 +26,4 @@ TimeLine:
 05/04/2016:  -Mise à Jours des classes : ExemplairesDao , UtilisateursDao , Adherent , EmpruntEnCours , Exemplaire , 			TestAdherentEnRetard, TestAdherentTroisEmprunts, TestDeBase			
 06/04/2016: -Modification des classes de test
 			-Creation de la classe TestEmployeTroisEmprunts
-			-Validation de la recette et mise fusion avec le projet source
+			-Validation de la recette et mise fusion avec le projet source sur github

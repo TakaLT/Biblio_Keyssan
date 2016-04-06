@@ -73,7 +73,7 @@ public class TestAdherentTroisEmprunts {
 			System.out.println(emp3);
 	
 			//======= isConditionPretAcceptees()
-			System.out.println(ad.isConditionsPretAcceptees());
+			//System.out.println(ad.isConditionsPretAcceptees());
 	
 			//======== Creation 4 ieme  emprunt en cours pour l'adh�rent
 			EmpruntEnCours emp4 = new EmpruntEnCours(ex4, ad );

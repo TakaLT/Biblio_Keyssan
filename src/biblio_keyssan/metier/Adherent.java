@@ -51,16 +51,16 @@ public class Adherent extends Utilisateur
 	
 //Some other Methods	
    public Boolean isConditionsPretAcceptees() {
-	   if(super.getEmpruntEnCours().size() >=getNbMaxPrets()){
+	   if(super.getEmpruntEnCours().size() >= getNbMaxPrets()){
 			try {
 				throw new BiblioException("Le nombre Max d'emprunt est attteint!!!");
 			} catch (BiblioException e) {				
 				e.printStackTrace();
 			}
 			return false;
-		}else if (getNbJoursRetards() >=  getDureeMaxPrets()) {
+		}else if (getNbExemplaireRetards() >= 1) {
 			try {
-				throw new BiblioException("Un Exmeplaire a depassé la durée limite d'empreint!!");
+				throw new BiblioException("Un Exmeplaire a depassé la durée limite d'emprunt!!");
 			} catch (BiblioException e) {				
 				e.printStackTrace();
 			}
@@ -68,23 +68,30 @@ public class Adherent extends Utilisateur
 		}
 			return true;
 }
-	public int  getNbJoursRetards() {		
-		Date dtToday = new Date();
-				
-		//====== Retour de l'exemplaire
-		GregorianCalendar dateR = new GregorianCalendar();
-		dateR.set(2016, 03, 8);
-		Date dateRetour = dateR.getTime();
-				
-		//====== Calculer la diff�rence entre les deux dates emprunt� et retour
-		long diff = dateRetour.getTime() - dtToday.getTime() ;
+	public int  getNbExemplaireRetards() {	
 		
-		//===== Convertir de milliseconds � jours
-		diff = diff / 1000 / 60 / 60 / 24 ;
-		//	System.out.println(diff);		
-			int diff2=Integer.parseInt(""+diff+"");
+		int nBExemplaireRetard=0;
+		Date dateToDay = new Date();
+		//Control pour chaque exemplaire la date
 		
-		return  diff2;
+		for (EmpruntEnCours emp : super.getEmpruntEnCours()) {	
+					
+			//====== Calculer la diff�rence entre les deux dates emprunt� et retour
+			long diff = dateToDay.getTime() - emp.getDateEmprunt().getTime() ;
+			
+			//===== Convertir de milliseconds � jours
+			diff = diff / 1000 / 60 / 60 / 24 ;
+			//	System.out.println(diff);		
+			int 	differ =Integer.parseInt(""+diff+"");
+				
+			
+			if (differ >= getDureeMaxPrets()) {
+					nBExemplaireRetard++;
+				}
+			}
+			
+		return nBExemplaireRetard;
+
    }
 	
 	public void addEmpruntEnCours(EmpruntEnCours ep) {
@@ -92,9 +99,9 @@ public class Adherent extends Utilisateur
 		bo = this.isConditionsPretAcceptees();
 		if (bo==true) {
 			super.addEmpruntEnCours(ep);
-			System.out.println("hello");
+			
 		} else {
-			System.out.println("hellode ");
+			
 			try {
 				throw new BiblioException();
 			} catch (BiblioException e) {

@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
-public class Utilisateur extends Personne 
+public abstract class  Utilisateur extends Personne 
 {
    public  int idUtilisateur;
    private String pwd;
@@ -79,11 +79,10 @@ public class Utilisateur extends Personne
 			   
 		}
 		   this.empruntEnCours.remove(index);
-		   //mise a null de l'exemplaire
-		   //ep.getExemplaire().setEmpruntEnCours(null);
-		   ep.setEmprunteur(null);
+		
+		 //  ep.setEmprunteur(null);
 		   ep.setExemplaire(null);
-		   //suppression de l'emprunt pour l'adherent
+	
 			
 					  
 	} 

@@ -6,6 +6,7 @@
 
 package biblio_keyssan.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -16,10 +17,29 @@ public class EmpruntArchive {
    private Utilisateur emprunteur;   
    private Exemplaire exemplaire;
    
+   
+   private SimpleDateFormat sdf1=new SimpleDateFormat("dd/MM/yyyy");
+   
+   private Date dtrestitution = new Date(); 
+   
 // Constructeur
    public EmpruntArchive() {
       
    }
+   public EmpruntArchive(EmpruntEnCours em) {
+		super();
+		this.setDateRestitutionEff(dtrestitution);
+		this.setDateEmprunt(em.getDateEmprunt());
+		this.setEmprunteur(em.getEmprunteur());
+		this.setExemplaire(em.getExemplaire());
+	}
+   public EmpruntArchive( Date dateEmprunt, Utilisateur emprunteur, Exemplaire exemplaire) {
+		super();
+		this.setDateRestitutionEff(dtrestitution);
+		this.setDateEmprunt(dateEmprunt);
+		this.setEmprunteur(emprunteur);
+		this.setExemplaire(exemplaire);
+	}
 
 	public EmpruntArchive(Date dateRestitutionEff, Date dateEmprunt, Utilisateur emprunteur, Exemplaire exemplaire) {
 		super();
@@ -63,8 +83,8 @@ public class EmpruntArchive {
 //Override
 @Override
 	public String toString() {
-		return "EmpruntArchive [getDateRestitutionEff()=" + getDateRestitutionEff() + ", getDateEmprunt()="
-				+ getDateEmprunt() + ", getEmprunteur()=" + getEmprunteur() + ", getExemplaire()=" + getExemplaire() + "]";
+		return "EmpruntArchive [DateRestitution=" + sdf1.format(getDateRestitutionEff()) + ", DateEmprunt="
+				+ sdf1.format(getDateEmprunt()) + ", tEmprunteur=" + getEmprunteur().getIdUtilisateur() + ", Exemplaire=" + getExemplaire().getIdExemplaire() + "]";
 	}
    
 

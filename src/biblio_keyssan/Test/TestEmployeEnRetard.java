@@ -3,8 +3,11 @@ package biblio_keyssan.Test;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
+import biblio_keyssan.DAO.ExemplairesDao;
+import biblio_keyssan.DAO.UtilisateursDao;
 import biblio_keyssan.metier.Adherent;
 import biblio_keyssan.metier.Employe;
+import biblio_keyssan.metier.EmpruntEnCours;
 import biblio_keyssan.metier.EnumCategorieEmploye;
 import biblio_keyssan.metier.EnumStatusExemplaire;
 import biblio_keyssan.metier.Exemplaire;
@@ -12,24 +15,64 @@ import biblio_keyssan.metier.Exemplaire;
 public class TestEmployeEnRetard {
 
 	public static void main(String[] args) {
-		//Preparation 
-				//====== Creation d'un exemplaire
-				
-				Exemplaire ex1 = new Exemplaire("25/05/2015", EnumStatusExemplaire.DISPONIBLE,"ISBN001") ;
-				System.out.println(ex1.toString());
-				
-				//====== Creation d'un employé
-				
-				GregorianCalendar dt = new GregorianCalendar();
-				dt.set(2000, 05, 20);
-				String[]tel ={"0245986570"};
-				Employe emp = new Employe("NomEmploye","PrenomEmploye","25/05/1980", "Femme" ,"pwd","pseudo","matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
-				
-				//===== Emprunt d'un exemplaire
-				
-				System.out.println("nombre de jours"+emp.getNbJoursRetards());
-				
-				System.out.println(emp.isConditionsPretAcceptees());
+			//////////////////////////////////////////////////////////////////////////
+			//============ Creation d'un Data base des Exemplaires (DAO)
+			ExemplairesDao DAO1 = new ExemplairesDao();
+			//System.out.println("Recherche dans la Dao de la key 1 : "+DAO1.findByKey(1));
+			
+			
+			// ============ Creation de la Dao exemplaire
+			Exemplaire ex1 = new Exemplaire("25/05/2015","ISBN001") ;
+			System.out.println(ex1.toString());
+			//ajout  de l'exemplaire
+			DAO1.ajoutExemplaire(ex1);
+			//Recherche de l'exemplaire
+			System.out.println("Recherche dans la Dao de la key 1 : "+DAO1.findByKey(1));
+			
+			
+			Exemplaire ex2 = new Exemplaire("18/03/2012","ISBN002") ;
+			System.out.println(ex2.toString());
+			DAO1.ajoutExemplaire(ex2);
+			//Recherche de l'exemplaire
+			System.out.println("Recherche dans la Dao de la key 2 : "+DAO1.findByKey(2));
+			
+			System.out.println();
+			
+			//=========== Cr�ation d'un Data Base des Utilisateurs 
+			UtilisateursDao  UtilisateurDao1= new UtilisateursDao();
+			//System.out.println(UtilisateurDao1.findByKey(1001));
+			
+			//=========== Creation d'un employ�
+			Employe em = new Employe("NomEmploye","PrenomEmploye","25/05/1980", "Femme" ,"pwd","pseudo","matr1",EnumCategorieEmploye.BIBLIOTHECAIRE);
+			System.out.println(em.toString());
+			System.out.println();
+			UtilisateurDao1.ajoutUtilisateur(em);
+			System.out.println("Recherche de l'adherent avec id 1000 : "+UtilisateurDao1.findByKey(1000));
+			
+			//======== Creation d'un emprunt en cours pour un adh�rent
+			
+			EmpruntEnCours emp1 = new EmpruntEnCours(ex1, em ,"01/03/2000");
+			System.out.println(emp1);
+			//System.out.println(ad.isConditionsPretAcceptees());
+			//System.out.println(ad.getNbExemplaireRetards());
+			
+			em.addEmpruntEnCours(emp1);
+			ex1.setEmpruntEnCours(emp1);
+			ex1.setStatus(EnumStatusExemplaire.PRETE);
+			//System.out.println(ad.isConditionsPretAcceptees());
+			//System.out.println(ad.getNbExemplaireRetards());
+			//=========Controle du nombre de jours de retard
+			///System.out.println("nombre de jours de retard : "+ad.getNbJoursRetards());
+			
+			//System.out.println(ad.isConditionsPretAcceptees());
+			
+			
+			//======== Creation d'un emprunt en cours pour un adh�rent
+			
+			EmpruntEnCours emp2 = new EmpruntEnCours(ex2, em);
+			em.addEmpruntEnCours(emp2);
+			ex2.setEmpruntEnCours(emp2);
+			ex2.setStatus(EnumStatusExemplaire.PRETE);
 			
 
 	}

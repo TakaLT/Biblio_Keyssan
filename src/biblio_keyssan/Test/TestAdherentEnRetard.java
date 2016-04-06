@@ -52,26 +52,29 @@ public class TestAdherentEnRetard {
 		
 		//======== Creation d'un emprunt en cours pour un adh�rent
 
-		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad);
+		EmpruntEnCours emp1 = new EmpruntEnCours(ex1, ad ,"22/03/2016");
+		System.out.println(emp1);
+		//System.out.println(ad.isConditionsPretAcceptees());
+		//System.out.println(ad.getNbExemplaireRetards());
+		
 		ad.addEmpruntEnCours(emp1);
 		ex1.setEmpruntEnCours(emp1);
 		ex1.setStatus(EnumStatusExemplaire.PRETE);
+		//System.out.println(ad.isConditionsPretAcceptees());
+		//System.out.println(ad.getNbExemplaireRetards());
+		//=========Controle du nombre de jours de retard
+		///System.out.println("nombre de jours de retard : "+ad.getNbJoursRetards());
 		
-		//=========Controle du nombre de jours
-		System.out.println("nombre de jours"+ad.getNbJoursRetards());
-		
-		System.out.println(ad.isConditionsPretAcceptees());
+		//System.out.println(ad.isConditionsPretAcceptees());
 		
 
 		//======== Creation d'un emprunt en cours pour un adh�rent
 
-		EmpruntEnCours emp2 = new EmpruntEnCours(ex2, ad , "25/04/2016");
+		EmpruntEnCours emp2 = new EmpruntEnCours(ex2, ad);
 		ad.addEmpruntEnCours(emp2);
 		ex2.setEmpruntEnCours(emp2);
 		ex2.setStatus(EnumStatusExemplaire.PRETE);
-		
-	
-	//
+
 		
 
 	}

@@ -6,7 +6,7 @@ import java.util.Date;
 //import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Personne 
+public abstract class Personne 
 {
    private String nom;
    private String prenom;

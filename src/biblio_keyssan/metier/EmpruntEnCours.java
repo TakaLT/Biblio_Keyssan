@@ -19,11 +19,22 @@ public class EmpruntEnCours
    private Exemplaire exemplaire;
    private Utilisateur emprunteur;
    public SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/master
+=======
 >>>>>>> refs/remotes/origin/master
 //Constructeur
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 =======
    
+   public EmpruntEnCours() {
+	   super();
+   }
+>>>>>>> refs/remotes/origin/master
+   
+<<<<<<< HEAD
    public EmpruntEnCours() {
 	   super();
    }
@@ -36,6 +47,10 @@ public class EmpruntEnCours
    
    public EmpruntEnCours(Exemplaire ex)    {
 	   this.setExemplaire(ex);
+=======
+   public EmpruntEnCours(Exemplaire ex)  {
+	   	this.setExemplaire(ex);
+>>>>>>> refs/remotes/origin/master
 =======
    public EmpruntEnCours(Exemplaire ex)  {
 	   	this.setExemplaire(ex);
@@ -77,6 +92,9 @@ public class EmpruntEnCours
 =======
 
 //Getteur et Setteur
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/master
+=======
 >>>>>>> refs/remotes/origin/master
    public void setDateEmprunt(Date d) {
 	   this.dateEmprunt = d;
@@ -105,7 +123,11 @@ public class EmpruntEnCours
 	@Override
 	public String toString() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire()+ ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ",DateEmprunt="+ sdf.format(getDateEmprunt()) + "]";
+=======
+		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire() + ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ", DateEmprunt=" + sdf.format(getDateEmprunt()) +"]";
+>>>>>>> refs/remotes/origin/master
 =======
 		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire() + ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ", DateEmprunt=" + sdf.format(getDateEmprunt()) +"]";
 >>>>>>> refs/remotes/origin/master

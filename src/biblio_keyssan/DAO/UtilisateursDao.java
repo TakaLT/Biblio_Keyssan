@@ -32,6 +32,7 @@ public class UtilisateursDao {
 		public void setutilisateurDB(HashMap<Integer, Utilisateur> utilisateurDB) {
 			this.utilisateurDB = utilisateurDB;
 		}
+<<<<<<< HEAD
 
 		public void ajoutUtilisateur(Utilisateur ut) {
 			utilisateurDB.put(ut.idUtilisateur, ut);
@@ -39,6 +40,14 @@ public class UtilisateursDao {
 		}
 	   public Utilisateur findByKey(Integer id) {
 
+=======
+		
+		public void ajoutUtilisateur(Utilisateur ut) {
+			utilisateurDB.put(ut.getIdUtilisateur(), ut);
+		   }
+
+	   public Utilisateur findByKey(int id) {
+>>>>>>> refs/remotes/origin/master
 	      
 		   return utilisateurDB.get(id);
 	   }

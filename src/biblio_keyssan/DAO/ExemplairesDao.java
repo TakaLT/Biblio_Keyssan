@@ -14,7 +14,7 @@ import biblio_keyssan.metier.Exemplaire;
 public class ExemplairesDao {
  //  private HashMap<Integer, Exemplaire> exemplaireDB = new HashMap<Integer,Exemplaire>();  
    
-   private ArrayList<Exemplaire> exemplaireDataBase = new ArrayList<>(); 
+   private ArrayList<Exemplaire> exemplaireDataBase = new ArrayList<Exemplaire>(); 
    
 //====== Constructeur 
    public ExemplairesDao() {
@@ -48,8 +48,9 @@ public class ExemplairesDao {
 		this.exemplaireDataBase.add(ex);
 	}  
 
-   public Exemplaire findByKey(int id) {	   
-	   return exemplaireDataBase.get(id);
+   public Exemplaire findByKey(int id) {	
+	   
+	   return exemplaireDataBase.get(id-1);
    }
    
    

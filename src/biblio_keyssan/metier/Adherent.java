@@ -47,9 +47,11 @@ public class Adherent extends Utilisateur
 	public static void setDureeMaxPrets(int dureeMaxPrets) {
 		Adherent.dureeMaxPrets = dureeMaxPrets;
 	}
+	
+	
 //Some other Methods	
    public Boolean isConditionsPretAcceptees() {
-	   if(super.getEmpruntEnCours().size() > getNbMaxPrets() ){
+	   if(super.getEmpruntEnCours().size() >=getNbMaxPrets()){
 			try {
 				throw new BiblioException("Le nombre Max d'emprunt est attteint!!!");
 			} catch (BiblioException e) {				
@@ -66,13 +68,12 @@ public class Adherent extends Utilisateur
 		}
 			return true;
 }
-	public int  getNbJoursRetards() {
-		
+	public int  getNbJoursRetards() {		
 		Date dtToday = new Date();
 				
 		//====== Retour de l'exemplaire
 		GregorianCalendar dateR = new GregorianCalendar();
-		dateR.set(2016, 03, 7);
+		dateR.set(2016, 03, 8);
 		Date dateRetour = dateR.getTime();
 				
 		//====== Calculer la diff�rence entre les deux dates emprunt� et retour
@@ -85,6 +86,25 @@ public class Adherent extends Utilisateur
 		
 		return  diff2;
    }
+	
+	public void addEmpruntEnCours(EmpruntEnCours ep) {
+		boolean bo;
+		bo = this.isConditionsPretAcceptees();
+		if (bo==true) {
+			super.addEmpruntEnCours(ep);
+			System.out.println("hello");
+		} else {
+			System.out.println("hellode ");
+			try {
+				throw new BiblioException();
+			} catch (BiblioException e) {
+				e.printStackTrace();
+			}
+		}
+	  
+	}  
+	
+	
 //Override
 	@Override
 	public String toString() {

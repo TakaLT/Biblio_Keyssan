@@ -13,11 +13,23 @@ public class Exemplaire
    public EmpruntEnCours theEmpruntEnCours;
    public SimpleDateFormat sdf1=new SimpleDateFormat("dd/MM/yyyy");
    
-   private static int noIUniqueEx;
+   private static int noIUniqueEx=1;
 //Constructeur
    public Exemplaire() {
 	   super();
    }
+   public Exemplaire(String dateAchat, String isbn) {
+		super();
+		this.setIdExemplaire(noIUniqueEx++);		
+		try {
+			this.setDateAchat(sdf1.parse(dateAchat));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		this.setStatus(status.DISPONIBLE);
+		this.setIsbn ( isbn);
+		
+	}
    public Exemplaire(String dateAchat, EnumStatusExemplaire status, String isbn) {
 		super();
 		this.setIdExemplaire(idExemplaire++);		
@@ -31,15 +43,7 @@ public class Exemplaire
 		
 	}
 
-/*	public Exemplaire(int idExemplaire, Date dateAchat, EnumStatusExemplaire status, String isbn, Livre livre, EmpruntEnCours theEmpruntEnCours) {
-		super();
-		this.setIdExemplaire( idExemplaire);
-		this.setDateAchat(dateAchat);
-		this.setStatus(status);
-		this.setIsbn ( isbn);
-		this.setLivre(livre);
-		this.setEmpruntEnCours(theEmpruntEnCours);
-	}*/
+
 //Getteur et Setteur
 	public int getIdExemplaire() {
 		return idExemplaire;

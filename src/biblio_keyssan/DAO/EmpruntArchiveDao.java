@@ -3,8 +3,6 @@ package biblio_keyssan.DAO;
 import java.util.ArrayList;
 
 import biblio_keyssan.metier.EmpruntArchive;
-import biblio_keyssan.metier.Exemplaire;
-import biblio_keyssan.metier.Utilisateur;
 
 public class EmpruntArchiveDao {
 	 private ArrayList<EmpruntArchive> empruntArchiveDataBase = new ArrayList<EmpruntArchive>(); 

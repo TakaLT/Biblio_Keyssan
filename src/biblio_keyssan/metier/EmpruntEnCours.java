@@ -7,56 +7,21 @@ import java.util.GregorianCalendar;
 
 public class EmpruntEnCours 
 {
-<<<<<<< HEAD
 	private Date dateEmprunt;
 	private Exemplaire exemplaire;
 	private Utilisateur emprunteur;
 	
 	private SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");	
 	Date dtToday = new Date();
-=======
-   private Date dateEmprunt;
-   private Exemplaire exemplaire;
-   private Utilisateur emprunteur;
-   public SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/master
-=======
->>>>>>> refs/remotes/origin/master
 //Constructeur
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
    
-   public EmpruntEnCours() {
-	   super();
-   }
->>>>>>> refs/remotes/origin/master
-   
-<<<<<<< HEAD
-   public EmpruntEnCours() {
-	   super();
-   }
->>>>>>> refs/remotes/origin/master
-   
-<<<<<<< HEAD
    public EmpruntEnCours() {
 	   super();    
    }   
    
    public EmpruntEnCours(Exemplaire ex)    {
 	   this.setExemplaire(ex);
-=======
-   public EmpruntEnCours(Exemplaire ex)  {
-	   	this.setExemplaire(ex);
->>>>>>> refs/remotes/origin/master
-=======
-   public EmpruntEnCours(Exemplaire ex)  {
-	   	this.setExemplaire(ex);
->>>>>>> refs/remotes/origin/master
    }
-<<<<<<< HEAD
   public EmpruntEnCours(Exemplaire exemplaire, Utilisateur emprunteur) {
 		this(exemplaire);
 		this.setEmprunteur(emprunteur);
@@ -69,33 +34,9 @@ public class EmpruntEnCours
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}		
- 
-=======
-   
-   public EmpruntEnCours(Exemplaire ex, String date) {
-	   this(ex);
-	   try {
-		this.setDateEmprunt(sdf.parse(date));
-	} catch (ParseException e) {
-		e.printStackTrace();
 	}
-   }
-   
-	public EmpruntEnCours(Exemplaire exemplaire,String dateEmprunt,  Utilisateur emprunteur) {
-		this(exemplaire, dateEmprunt);
-		this.emprunteur = emprunteur;
->>>>>>> refs/remotes/origin/master
-	}
-<<<<<<< HEAD
    
 //Getteur et Setteur 
-=======
-
-//Getteur et Setteur
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/master
-=======
->>>>>>> refs/remotes/origin/master
    public void setDateEmprunt(Date d) {
 	   this.dateEmprunt = d;
    }
@@ -122,15 +63,7 @@ public class EmpruntEnCours
 //Override
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-<<<<<<< HEAD
 		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire()+ ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ",DateEmprunt="+ sdf.format(getDateEmprunt()) + "]";
-=======
-		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire() + ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ", DateEmprunt=" + sdf.format(getDateEmprunt()) +"]";
->>>>>>> refs/remotes/origin/master
-=======
-		return "EmpruntEnCours [Exemplaire=" + getExemplaire().getIdExemplaire() + ", Emprunteur=" + getEmprunteur().getIdUtilisateur()+ ", DateEmprunt=" + sdf.format(getDateEmprunt()) +"]";
->>>>>>> refs/remotes/origin/master
 	}
 
 
@@ -138,7 +71,6 @@ public class EmpruntEnCours
 	protected void finalize() throws Throwable {
 		System.out.println("Fin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		super.finalize();
-	
 	}
 
 }

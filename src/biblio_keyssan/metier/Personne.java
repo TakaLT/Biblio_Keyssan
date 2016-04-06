@@ -14,12 +14,15 @@ public abstract class Personne
    private String sexe;
    
 <<<<<<< HEAD
+<<<<<<< HEAD
    public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
  //Constructeur 
  
    public Personne() {
     super();
 =======
+=======
+>>>>>>> refs/remotes/origin/master
    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
  //Constructeur  
    public Personne() {
@@ -28,9 +31,13 @@ public abstract class Personne
 >>>>>>> refs/remotes/origin/master
    }
 <<<<<<< HEAD
+<<<<<<< HEAD
  
    public Personne(String nom, String prenom, String dateNaissance, String sexe) {
 
+=======
+	public Personne(String nom, String prenom, String dateNaissance, String sexe) {
+>>>>>>> refs/remotes/origin/master
 =======
 	public Personne(String nom, String prenom, String dateNaissance, String sexe) {
 >>>>>>> refs/remotes/origin/master
@@ -61,8 +68,13 @@ public abstract class Personne
 		return dateNaissance;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
+=======
+	public void setDateNaissance(Date date) {
+		this.dateNaissance = date;
+>>>>>>> refs/remotes/origin/master
 =======
 	public void setDateNaissance(Date date) {
 		this.dateNaissance = date;
@@ -78,8 +90,12 @@ public abstract class Personne
 	@Override
 	public String toString() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return "Personne [Nom=" + getNom() + ",Prenom=" + getPrenom() + ", DateNaissance="
 				+ sdf.format(getDateNaissance()) + ", Sexe=" + getSexe() + "]";
+=======
+		return "Personne [Nom=" + getNom() + ", Prenom=" + getPrenom() + ", DateNaissance="+ sdf.format(getDateNaissance()) + ", Sexe=" + getSexe() + "]";
+>>>>>>> refs/remotes/origin/master
 =======
 		return "Personne [Nom=" + getNom() + ", Prenom=" + getPrenom() + ", DateNaissance="+ sdf.format(getDateNaissance()) + ", Sexe=" + getSexe() + "]";
 >>>>>>> refs/remotes/origin/master

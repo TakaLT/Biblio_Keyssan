@@ -1,6 +1,5 @@
 package biblio_keyssan.metier;
 
-import java.util.GregorianCalendar;
 
 public class Employe extends Utilisateur 
 {

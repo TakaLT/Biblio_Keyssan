@@ -2,7 +2,6 @@ package biblio_keyssan.metier;
 
 import java.util.Arrays;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 
 public class Adherent extends Utilisateur 

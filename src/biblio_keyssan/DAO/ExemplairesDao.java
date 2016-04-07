@@ -1,12 +1,5 @@
 package biblio_keyssan.DAO;
 
-/***********************************************************************
- * Module:  ExemplairesDao.java
- * Author:  takalt
- * Purpose: Defines the Class ExemplairesDao
- ***********************************************************************/
-
-
 import java.util.*;
 import biblio_keyssan.metier.Exemplaire;
 

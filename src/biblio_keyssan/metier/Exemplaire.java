@@ -14,6 +14,7 @@ public class Exemplaire
    public SimpleDateFormat sdf1=new SimpleDateFormat("dd/MM/yyyy");
    
    private static int noIUniqueEx=1;
+   
 //Constructeur
    public Exemplaire() {
 	   super();

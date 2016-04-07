@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  EmpruntArchive.java
- * Author:  takalt
- * Purpose: Defines the Class EmpruntArchive
- ***********************************************************************/
-
 package biblio_keyssan.metier;
 
 import java.text.SimpleDateFormat;

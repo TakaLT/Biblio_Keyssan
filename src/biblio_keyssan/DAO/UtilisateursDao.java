@@ -1,17 +1,7 @@
 package biblio_keyssan.DAO;
 
-/***********************************************************************
- * Module:  UtilisateursDao.java
- * Author:  takalt
- * Purpose: Defines the Class UtilisateursDao
- ***********************************************************************/
+import java.util.HashMap;
 
-
-
-import java.util.*;
-
-import biblio_keyssan.metier.Employe;
-import biblio_keyssan.metier.Exemplaire;
 import biblio_keyssan.metier.Utilisateur;
 
 

@@ -2,8 +2,8 @@ package biblio_keyssan.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import biblio_keyssan.DAO.EmpruntArchiveDao;
 import biblio_keyssan.DAO.UtilisateursDao;
@@ -101,9 +101,10 @@ public class TestRetour {
 		System.out.println();
 		
 		//======= Declenchement du garbage collector
-	/*	for (int i = 0; i < 10000; i++) {				
-			EmpruntEnCours i1 = new EmpruntEnCours();			 
-		}		*/
+		ArrayList<EmpruntEnCours> gC ;
+		for (int i = 0; i < 10000; i++) {				
+			gC= new ArrayList<EmpruntEnCours>();			 
+		}		
 
 	}
 
